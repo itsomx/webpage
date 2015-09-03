@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="itso, itsomx, itso.mx, responsive, material design, it, solutions, it solution, it solutions">
+    <title>ITSo - IT Solutions</title>
+    <!-- Favicons-->
+    <link rel="icon" href="assets/images/favicon/favicon-32x32.png" sizes="32x32">
+    <!-- Favicons-->
+    <link rel="apple-touch-icon-precomposed" href="assets/images/favicon/apple-touch-icon-152x152.png">
+    <!-- For iPhone -->
+    <meta name="msapplication-TileColor" content="#00bcd4">
+    <meta name="msapplication-TileImage" content="assets/images/favicon/mstile-144x144.png">
+    <!-- For Windows Phone -->
+    <link href="../public/lib/nvd3/build/nv.d3.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <!-- CUSTOM APP STYLES-->
+</head>
+
+<body class="ng-cloak">
+    <!-- Start Page Loading -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- End Page Loading -->
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+    <!-- START HEADER -->
+    <header id="header" class="page-topbar">
+    </header>
+    <!-- END HEADER -->
+    <!-- START MAIN -->
+    <div id="main">
+        <!-- START WRAPPER -->
+        <div class="wrapper">
+            <section id="content">
+                <!--start container-->
+                <div class="container main">
+                    <div class="section no-margin no-padding">
+                        <div ui-view></div>
+                    </div>
+                </div>
+                <!--end container-->
+            </section>
+            <!-- END CONTENT -->
+        </div>
+        <!-- END WRAPPER -->
+    </div>
+    <!-- END MAIN -->
+    <script src="../public/lib/jquery/dist/jquery.min.js"></script>
+</body>
+
+</html>
