@@ -4,6 +4,15 @@ import routes from './routes'
 import Root from './containers/Root'
 import configureStore from './redux/configureStore'
 
+// ----- Can go away when react 1.0 release -------------
+import injectTapEventPlugin from 'react-tap-event-plugin'
+// Needed for onTouchTap
+// Can go away when react 1.0 release
+// Check this repo:
+// https://github.com/zilverline/react-tap-event-plugin
+injectTapEventPlugin()
+// ------------------------------------------------------
+
 const history = createBrowserHistory()
 const store = configureStore(window.__INITIAL_STATE__)
 

@@ -3,7 +3,9 @@ import cssnano from 'cssnano'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import config from '../../config'
 import _debug from 'debug'
+import path from 'path'
 
+const NODE_DIR = 'node_modules'
 const paths = config.utils_paths
 const debug = _debug('app:webpack:_base')
 debug('Create configuration.')
@@ -106,7 +108,9 @@ const webpackConfig = {
     ]
   },
   sassLoader: {
-    includePaths: paths.client('styles')
+    includePaths: [paths.client('styles'),
+    path.join(NODE_DIR, 'normalize-scss', 'sass'),
+    path.join(NODE_DIR, 'support-for', 'sass')]
   },
   postcss: [
     cssnano({
