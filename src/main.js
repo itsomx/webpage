@@ -1,4 +1,4 @@
-import createBrowserHistory from 'history/lib/createBrowserHistory'
+import { createHistory as createBrowserHistory } from 'history'
 import { syncReduxAndRouter } from 'redux-simple-router'
 import routes from './routes'
 import Root from './containers/Root'

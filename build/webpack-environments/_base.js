@@ -37,6 +37,7 @@ const webpackConfig = {
     new webpack.optimize.DedupePlugin(),
     new HtmlWebpackPlugin({
       template: paths.client('index.html'),
+      title: 'ITSO - IT Solutions',
       hash: false,
       favicon: paths.client('static/favicon.ico'),
       filename: 'index.html',
