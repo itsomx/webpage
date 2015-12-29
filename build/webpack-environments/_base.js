@@ -109,6 +109,7 @@ const webpackConfig = {
   },
   sassLoader: {
     includePaths: [paths.client('styles'),
+    // TODO: Remove when normalize fix the support-for issue with npm
     path.join(NODE_DIR, 'normalize-scss', 'sass'),
     path.join(NODE_DIR, 'support-for', 'sass')]
   },
