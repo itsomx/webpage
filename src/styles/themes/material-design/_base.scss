@@ -1,4 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+//@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 html {
   font-family: 'Roboto', sans-serif;
+}
+
+.main-bar {
+  padding: 0.2em;
+  .logo {
+    height: 3em;
+  }
 }

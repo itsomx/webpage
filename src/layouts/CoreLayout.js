@@ -1,5 +1,5 @@
 import '../styles/core.scss';
-
+import MainBar from '../components/MainBar';
 // Note: Stateless/function components *will not* hot reload!
 // react-transform *only* works on component classes.
 //
@@ -12,6 +12,7 @@ import '../styles/core.scss';
 function CoreLayout ({ children }) {
   return (
     <div className='page-container'>
+      <MainBar/>
       <div className='view-container'>
         {children}
       </div>
