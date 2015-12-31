@@ -1,11 +1,24 @@
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
+import MainTheme from '../styles/themes/MainTheme';
+import ThemeManager from 'material-ui/lib/styles/theme-manager';
 
 export default class Root extends React.Component {
   static propTypes = {
     history: React.PropTypes.object.isRequired,
     routes: React.PropTypes.element.isRequired,
     store: React.PropTypes.object.isRequired
+  }
+
+  // the key passed through context must be called "muiTheme"
+  static childContextTypes = {
+    'muiTheme': React.PropTypes.object
+  };
+
+  getChildContext () {
+    return ({
+      'muiTheme': ThemeManager.getMuiTheme(MainTheme)
+    });
   }
 
   get content () {
