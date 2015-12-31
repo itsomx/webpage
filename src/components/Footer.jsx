@@ -1,4 +1,5 @@
 import Color from 'material-ui/lib/styles/colors';
+import MaterialIcon from 'components/MaterialIcon.jsx';
 
 const styles = {
   padding: '6em 2em',
@@ -14,7 +15,8 @@ export default class Footer extends React.Component {
         className='footer'
         style={styles}
       >
-        Home
+        ITSO
+        <MaterialIcon icon='face'/>
       </div>
     );
   }
