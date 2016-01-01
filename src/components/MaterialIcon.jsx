@@ -1,14 +1,15 @@
 import Color from 'material-ui/lib/styles/colors';
+import MIStyles from 'styles/themes/material-design/material-icons.scss';
 
 const size = {
-  small: 'md-18',
-  medium: 'md-24',
-  large: 'md-36',
-  jumbo: 'md-48'
+  small: MIStyles['md-18'],
+  medium: MIStyles['md-24'],
+  large: MIStyles['md-36'],
+  extraLarge: MIStyles['md-48']
 },
 background = {
-  dark: Color.white,
-  light: Color.black
+  dark: MIStyles['md-light'],
+  light: MIStyles['md-dark']
 },
 inactive = 'md-inactive';
 
@@ -47,7 +48,7 @@ export default class MaterialIcon extends React.Component {
   static defaultProps = {
       background: background.light,
       inactive: false,
-      size: size.small,
+      size: size.medium,
       style: {}
   };
 

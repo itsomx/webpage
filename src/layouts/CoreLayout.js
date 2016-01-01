@@ -1,4 +1,4 @@
-import '../styles/core.scss';
+import 'styles/core.scss';
 import MainBar from '../components/MainBar';
 import Footer from '../components/Footer';
 // Note: Stateless/function components *will not* hot reload!
