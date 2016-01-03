@@ -30,7 +30,7 @@ export default class MainBar extends React.Component {
   getStyles () {
     const styles = {
       appBar: {
-        position: 'fixed',
+        position: 'relative',
         // Needed to overlap the examples
         zIndex: ThemeManager.getMuiTheme().zIndex.appBar + 1,
         top: 0

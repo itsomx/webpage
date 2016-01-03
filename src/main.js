@@ -1,4 +1,6 @@
-import createHistory from 'history/lib/createHashHistory';
+import { Provider } from 'react-redux';
+import { Router } from 'react-router';
+import { createHistory } from 'history';
 import { syncReduxAndRouter } from 'redux-simple-router';
 import routes from './routes';
 import Root from './containers/Root';
@@ -20,6 +22,10 @@ syncReduxAndRouter(history, store, (state) => state.router);
 
 // Render the React application to the DOM
 ReactDOM.render(
-  <Root history={history} routes={routes} store={store} />,
+  <Provider store={store}>
+    <Router history={history}>
+      {routes}
+    </Router>
+  </Provider>,
   document.getElementById('root')
 );

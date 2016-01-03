@@ -1,5 +1,3 @@
-import { Provider } from 'react-redux';
-import { Router } from 'react-router';
 import MainTheme from '../styles/themes/MainTheme.jsx';
 import MainBar from '../components/MainBar';
 import Footer from '../components/Footer';
@@ -127,14 +125,6 @@ export default class Root extends React.Component {
     });
   }
 
-  get content () {
-    return (
-      <Router history={this.props.history}>
-        {this.props.routes}
-      </Router>
-    );
-  }
-
   get devTools () {
     if (__DEBUG__) {
       if (__DEBUG_NEW_WINDOW__) {
@@ -174,14 +164,14 @@ export default class Root extends React.Component {
     }
 
     return (
-      <Provider store={this.props.store}>
-        <div style={{ height: '100%' }}>
-          <MainBar onLeftIconButtonTouchTap={this.handleTouchTapLeftIconButton}/>
-          {this.content}
-          <Footer/>
-          {this.devTools}
+      <div style={{ height: '100%' }}>
+        <MainBar onLeftIconButtonTouchTap={this.handleTouchTapLeftIconButton}/>
+        <div>
+          {children}
         </div>
-      </Provider>
+        <Footer/>
+        {this.devTools}
+      </div>
     );
   }
 }
