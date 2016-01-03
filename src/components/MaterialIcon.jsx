@@ -1,40 +1,20 @@
 import Color from 'material-ui/lib/styles/colors';
-import MIStyles from 'styles/themes/material-design/material-icons.scss';
+import {IconButton} from 'material-ui';
 
-const size = {
-  small: MIStyles['md-18'],
-  medium: MIStyles['md-24'],
-  large: MIStyles['md-36'],
-  extraLarge: MIStyles['md-48']
+const SIZE = {
+  SMALL: '18px',
+  MEDIUM: '24px',
+  LARGE: '36px',
+  EXTRA_LARGE: '48px'
 },
-background = {
-  dark: MIStyles['md-light'],
-  light: MIStyles['md-dark']
-},
-inactive = 'md-inactive';
-
-var getClasses = (props) => {
-  let classes = ['material-icons'];
-
-  if (props.inactive) {
-    classes.push(this.inactive);
-  }
-
-  if (props.background) {
-    classes.push(props.background);
-  }
-
-  if (props.size) {
-    classes.push(props.size);
-  }
-
-  return classes.join(' ');
-}
+BACKGROUND = {
+  DARK: Color.white,
+  LIGHT: Color.black
+};
 
 export default class MaterialIcon extends React.Component {
-  static size = size;
-  static background = background;
-  static inactive = inactive;
+  static SIZE = SIZE;
+  static BACKGROUND = BACKGROUND;
 
   static propTypes = {
     backgound: React.PropTypes.string,
@@ -46,23 +26,51 @@ export default class MaterialIcon extends React.Component {
   };
 
   static defaultProps = {
-      background: background.light,
+      background: BACKGROUND.LIGHT,
       inactive: false,
-      size: size.medium,
+      size: SIZE.MEDIUM,
       style: {}
   };
 
   render () {
-    let color = (Color[this.props.color]) ? Color[this.props.color] : this.props.color;
+    let {
+      background,
+      color,
+      icon,
+      inactive,
+      size,
+      style,
+      ...other
+    } = this.props;
+
+    if (color) {
+      color = (Color[color]) ? Color[color] : color;
+    } else if (background) {
+      color = background;
+    }
+
+    if (inactive) {
+      color = 'rgba(255, 255, 255, 0.3)';
+      if (background === BACKGROUND.LIGHT) {
+        color = 'rgba(0, 0, 0, 0.26)';
+      }
+    }
+    style.color = color;
+
+    if (size) {
+      style.fontSize = size;
+    }
 
     return (
-      <i
-        className={getClasses(this.props)}
-        color={color ? color : ''}
-        style={this.props.style}
+      <IconButton
+        iconClassName='material-icons'
+        size={size}
+        iconStyle={style}
+        disabled={inactive}
+        {...other}
       >
-        {this.props.icon}
-      </i>
+        {icon}
+      </IconButton>
     );
   }
 }
