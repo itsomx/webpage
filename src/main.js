@@ -1,4 +1,4 @@
-import { createHistory as createBrowserHistory } from 'history';
+import createHistory from 'history/lib/createHashHistory';
 import { syncReduxAndRouter } from 'redux-simple-router';
 import routes from './routes';
 import Root from './containers/Root';
@@ -13,7 +13,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 // ------------------------------------------------------
 
-const history = createBrowserHistory();
+const history = createHistory();
 const store = configureStore(window.__INITIAL_STATE__);
 
 syncReduxAndRouter(history, store, (state) => state.router);

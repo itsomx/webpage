@@ -1,3 +1,6 @@
+import styles from 'styles/components/_section.scss';
+import {ClearFix} from 'material-ui';
+
 export default class Section extends React.Component {
   static propTypes = {
     children: React.PropTypes.element
@@ -5,9 +8,9 @@ export default class Section extends React.Component {
 
   render () {
     return (
-      <section className='tech' style={{textAlign: 'center'}}>
-        {this.props.children}
-      </section>
+        <ClearFix className={'section ' + styles['section']}>
+          {this.props.children}
+        </ClearFix>
     );
   }
 }

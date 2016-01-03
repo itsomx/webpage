@@ -47,19 +47,21 @@ export default class MainBar extends React.Component {
     let docked = false,
       showMenuIconButton = false,
       title = 'Home',
-      elementRight = (<MainTabs/>);
+      elementRight = (<MainTabs/>),
+      logo = 'logo';
 
     const styles = this.getStyles();
-    if (!this.isDeviceSize(StyleResizable.statics.Sizes.LARGE)) {
+    if (!this.isDeviceSize(StyleResizable.statics.Sizes.MEDIUM)) {
       showMenuIconButton = true;
       elementRight = (<MaterialIcon icon='menu' size={MaterialIcon.SIZE.MEDIUM} background={MaterialIcon.BACKGROUND.DARK}/>);
+      logo = 'logo-icon';
     }
 
     return (
       <AppBar
         className={coreStyles['main-bar']}
         onLeftIconButtonTouchTap={this.props.onLeftIconButtonTouchTap}
-        title={<Link to='/'><img src='logo.png' className={coreStyles['logo']}/></Link>}
+        title={<Link to='/'><img src={logo + '.png'} className={coreStyles['logo']}/></Link>}
         zDepth={0}
         iconElementRight={elementRight}
         style={styles.appBar}

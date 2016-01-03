@@ -3,6 +3,7 @@ import List from 'material-ui/lib/lists/list';
 import ListItem from 'material-ui/lib/lists/list-item';
 import MaterialIcon from 'components/MaterialIcon.jsx';
 import ImageIcon from 'components/ImageIcon.jsx';
+import FullWidthSection from 'components/FullWidthSection.jsx';
 
 const styles = {
   padding: '6em 2em',
@@ -14,12 +15,12 @@ const styles = {
 export default class Footer extends React.Component {
   render () {
     return (
-      <div
+      <FullWidthSection
         className='footer'
         style={styles}
       >
         ITSO&nbsp;-&nbsp;2016&nbsp;
-        <MaterialIcon icon='copyright' size={MaterialIcon.size.small} background={MaterialIcon.background.dark}/>
+        <MaterialIcon icon='copyright' size={MaterialIcon.SIZE.SMALL} background={MaterialIcon.BACKGROUND.DARK}/>
         <div>
         <List style={{display: 'inline-flex', 'backgroundColor': 'transparent'}}>
           <ListItem disabled={true}>
@@ -33,7 +34,7 @@ export default class Footer extends React.Component {
           </ListItem>
         </List>
       </div>
-    </div>
+    </FullWidthSection>
     );
   }
 }

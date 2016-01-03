@@ -109,7 +109,6 @@ export default class Root extends React.Component {
   }
 
   handleTouchTapLeftIconButton () {
-    console.info('tap left', this.state);
     this.setState({
       leftNavOpen: !this.state.leftNavOpen
     });
