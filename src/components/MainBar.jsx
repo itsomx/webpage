@@ -53,7 +53,7 @@ export default class MainBar extends React.Component {
     const styles = this.getStyles();
     if (!this.isDeviceSize(StyleResizable.statics.Sizes.MEDIUM)) {
       showMenuIconButton = true;
-      elementRight = (<MaterialIcon icon='menu' size={MaterialIcon.SIZE.MEDIUM} background={MaterialIcon.BACKGROUND.DARK}/>);
+      elementRight = '';
       logo = 'logo-icon';
     }
 
