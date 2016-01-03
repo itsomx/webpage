@@ -19,16 +19,21 @@ export default class ImageIcon extends React.Component {
   static icons = icons;
   static propTypes = {
     icon: React.PropTypes.string,
-    width: React.PropTypes.string
+    size: React.PropTypes.string
   };
 
   static defaultProps = {
-    width: size.medium + 'px'
+    size: size.medium + 'px'
   };
 
   render () {
+    const {
+      icon,
+      size,
+      ...other
+    } = this.props;
     return (
-      <img src={icons[this.props.icon]} width={this.props.size + 'px'}/>
+      <img src={icons[icon]} width={this.props.size + 'px'} {...other}/>
     );
   }
 }
