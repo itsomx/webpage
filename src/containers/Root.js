@@ -1,22 +1,24 @@
-import MainTheme from '../styles/themes/MainTheme.jsx';
+import MainTheme from 'styles/themes/MainTheme';
 import MainBar from 'components/MainBar';
 import Footer from 'components/Footer';
+import MainLeftNav from 'components/MainLeftNav';
 import ReactMixin from 'react-mixin';
 
-import {Spacing} from 'material-ui/lib/styles';
+import { Spacing } from 'material-ui/lib/styles';
 import {
   StylePropable,
   StyleResizable
 } from 'material-ui/lib/mixins';
 
 import {
-  Colors,
+  // Colors,
   ThemeManager
 } from 'material-ui/lib/styles';
 
 export default class Root extends React.Component {
   constructor (props) {
     super();
+
     this.state = {
       muiTheme: ThemeManager.getMuiTheme(),
       leftNavOpen: false
@@ -32,10 +34,10 @@ export default class Root extends React.Component {
   static propTypes = {
     children: React.PropTypes.node,
     history: React.PropTypes.object.isRequired,
-    location: React.PropTypes.object
+    location: React.PropTypes.object,
+    store: React.PropTypes.string
   };
 
-  // the key passed through context must be called "muiTheme"
   static childContextTypes = {
     muiTheme: React.PropTypes.object
   };
@@ -47,8 +49,6 @@ export default class Root extends React.Component {
   }
 
   getStyles () {
-    const darkWhite = Colors.darkWhite;
-
     const styles = {
       appBar: {
         position: 'fixed',
@@ -67,16 +67,16 @@ export default class Root extends React.Component {
         margin: `${Spacing.desktopGutter * 2}px ${Spacing.desktopGutter * 3}px`
       },
       footer: {
-        backgroundColor: Colors.grey900,
+        // backgroundColor: Colors.grey900,
         textAlign: 'center'
       },
       a: {
-        color: darkWhite
+        // color: Colors.darkWhite
       },
       p: {
         margin: '0 auto',
         padding: 0,
-        color: Colors.lightWhite,
+        // color: Colors.lightWhite,
         maxWidth: 335
       }
     };
@@ -152,8 +152,6 @@ export default class Root extends React.Component {
     const styles = this.getStyles();
 
     if (this.isDeviceSize(StyleResizable.statics.Sizes.LARGE)) {
-      leftNavOpen = true;
-
       styles.leftNav = {
         zIndex: styles.appBar.zIndex - 1
       };
@@ -164,6 +162,15 @@ export default class Root extends React.Component {
     return (
       <div style={{ height: '100%' }}>
         <MainBar onLeftIconButtonTouchTap={this.handleTouchTapLeftIconButton}/>
+        <MainLeftNav
+          style={styles.leftNav}
+          history={history}
+          location={location}
+          docked={false}
+          onRequestChangeLeftNav={this.handleChangeRequestLeftNav}
+          onRequestChangeList={this.handleRequestChangeList}
+          open={leftNavOpen}
+        />
         <div>
           {children}
         </div>

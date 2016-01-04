@@ -43,17 +43,19 @@ export default class MainBar extends React.Component {
   }
 
   render () {
-    let docked = false,
-      showMenuIconButton = false,
-      title = 'Home',
-      elementRight = (<MainTabs/>),
-      logo = 'logo';
+    let showMenuIconButton = false,
+      elementRight = null, // (<MainTabs/>),
+      logo = 'logo',
+      titleStyle = {
+        textAlign: 'left'
+      };
 
     const styles = this.getStyles();
     if (!this.isDeviceSize(StyleResizable.statics.Sizes.MEDIUM)) {
-      showMenuIconButton = true;
+      // showMenuIconButton = true;
       elementRight = null;
       logo = 'logo-icon';
+      titleStyle.textAlign = 'center';
     }
 
     return (
@@ -65,6 +67,7 @@ export default class MainBar extends React.Component {
         iconElementRight={elementRight}
         style={styles.appBar}
         showMenuIconButton={showMenuIconButton}
+        titleStyle={titleStyle}
       />
     );
   }

@@ -1,6 +1,5 @@
-import React from 'react';
-import Tabs from 'material-ui/lib/tabs/tabs';
-import Tab from 'material-ui/lib/tabs/tab';
+import { Tabs, Tab } from 'material-ui/lib/tabs';
+import { Dom } from 'material-ui/lib/utils';
 
 const styles = {
   tab: {
@@ -9,10 +8,10 @@ const styles = {
 },
 tabs = {
   home: {
-    value: '#home'
+    value: 'home'
   },
   contact: {
-    value: '#contact'
+    value: 'footer'
   }
 };
 
@@ -25,6 +24,11 @@ export default class MainTabs extends React.Component {
   }
 
   handleChange = (value) => {
+    let {
+      top,
+      left
+    } = Dom.offset(document.getElementById(value));
+    scrollTo(left, top);
     this.setState({
       value: value,
     });

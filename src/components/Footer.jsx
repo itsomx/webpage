@@ -48,7 +48,7 @@ export default class Footer extends React.Component {
 
     return (
       <FullWidthSection
-        style={styles}
+        style={styles} id='footer'
       >
         ITSO - 2016
         <div>
