@@ -31,7 +31,6 @@ export default class MainBar extends React.Component {
     const styles = {
       appBar: {
         position: 'relative',
-        // Needed to overlap the examples
         zIndex: ThemeManager.getMuiTheme().zIndex.appBar + 1,
         top: 0
       },
@@ -53,7 +52,7 @@ export default class MainBar extends React.Component {
     const styles = this.getStyles();
     if (!this.isDeviceSize(StyleResizable.statics.Sizes.MEDIUM)) {
       showMenuIconButton = true;
-      elementRight = '';
+      elementRight = null;
       logo = 'logo-icon';
     }
 

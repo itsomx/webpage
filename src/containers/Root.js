@@ -1,6 +1,6 @@
 import MainTheme from '../styles/themes/MainTheme.jsx';
-import MainBar from '../components/MainBar';
-import Footer from '../components/Footer';
+import MainBar from 'components/MainBar';
+import Footer from 'components/Footer';
 import ReactMixin from 'react-mixin';
 
 import {Spacing} from 'material-ui/lib/styles';
@@ -32,9 +32,7 @@ export default class Root extends React.Component {
   static propTypes = {
     children: React.PropTypes.node,
     history: React.PropTypes.object.isRequired,
-    location: React.PropTypes.object,
-    routes: React.PropTypes.element.isRequired,
-    store: React.PropTypes.object.isRequired
+    location: React.PropTypes.object
   };
 
   // the key passed through context must be called "muiTheme"
