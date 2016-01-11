@@ -31,7 +31,7 @@ export default class HomeView extends React.Component {
   render () {
     return (
       <Section className='tech'>
-        <div className='container'>
+        <div className='container' style={{textAlign: 'center'}}>
           <div>
             <h1 className={coreStyles['lighter']}>Siempre lo mejor</h1>
             <p>Tu tienes la idea, nosotros la realizamos</p>

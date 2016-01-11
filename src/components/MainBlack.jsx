@@ -6,7 +6,7 @@ import {
   StyleResizable
 } from 'material-ui/lib/mixins';
 import {
-  Colors,
+  Colors
 } from 'material-ui/lib/styles';
 import {
   // Colors,
@@ -26,7 +26,6 @@ export default class MainBlack extends React.Component {
   }
 
   render () {
-
     return (
       <Section
         style={{backgroundColor: Colors.darkBlack, height: window.innerHeight - ThemeManager.getMuiTheme().appBar.height, padding: '0 20px 0 20px', color: Colors.white}}

@@ -2,9 +2,7 @@ import { ClearFix } from 'material-ui';
 import coreStyles from 'styles/core.scss';
 import MaterialIcon from 'components/MaterialIcon.jsx';
 import ReactMixin from 'react-mixin';
-import {
-  StyleResizable
-} from 'material-ui/lib/mixins';
+import { StyleResizable } from 'material-ui/lib/mixins';
 import {Divider} from 'material-ui';
 
 const styleBlock = {
@@ -111,7 +109,7 @@ export default class TechBlock extends React.Component {
     style: {}
   };
 
-  get content () {
+  render () {
     const {
       align,
       title,
@@ -136,24 +134,18 @@ export default class TechBlock extends React.Component {
     }
 
     return (
-      <div {...other} style={{padding: '0 50px 0 50px', 'width': '100%', marginTop: '30px'}}>
-        {divider}
-        <div style={info.container}>
-          <MaterialIcon icon={icon} size={MaterialIcon.SIZE.EXTRA_LARGE} background={MaterialIcon.BACKGROUND.LIGHT} style={info.icon} disabled/>
-          <h4 className={coreStyles['lighter']} style={info.text}>{title}</h4>
-          <p style={info.text}>{this.props.children}</p>
-        </div>
-        <div style={tech.container}>
-          <img src={imgLandscape} style={tech.img}/>
-        </div>
-      </div>
-    );
-  };
-
-  render () {
-    return (
       <ClearFix>
-          {this.content}
+        <div {...other} style={{padding: '0 50px 0 50px', 'width': '100%', marginTop: '30px'}}>
+          {divider}
+          <div style={info.container}>
+            <MaterialIcon icon={icon} size={MaterialIcon.SIZE.EXTRA_LARGE} background={MaterialIcon.BACKGROUND.LIGHT} style={info.icon} disabled/>
+            <h4 className={coreStyles['lighter']} style={info.text}>{title}</h4>
+            <p style={info.text}>{this.props.children}</p>
+          </div>
+          <div style={tech.container}>
+            <img src={imgLandscape} style={tech.img}/>
+          </div>
+        </div>
       </ClearFix>
     );
   }

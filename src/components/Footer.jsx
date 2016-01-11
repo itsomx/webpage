@@ -18,8 +18,6 @@ export default class Footer extends React.Component {
   constructor () {
     super();
 
-    this.state = {};
-
     ReactMixin(this, StyleResizable);
     this._updateDeviceSize = this._updateDeviceSize.bind(this);
   }

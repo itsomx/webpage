@@ -1,8 +1,5 @@
 import { Link } from 'react-router';
 import AppBar from 'material-ui/lib/app-bar';
-import {IconButton} from 'material-ui';
-import MainTabs from 'components/MainTabs';
-import MaterialIcon from 'components/MaterialIcon.jsx';
 import ReactMixin from 'react-mixin';
 import {
   StylePropable,
@@ -13,13 +10,17 @@ import {
   ThemeManager
 } from 'material-ui/lib/styles';
 
+import Sticky from 'react-sticky';
+
 export default class MainBar extends React.Component {
   static propTypes = {};
 
   constructor () {
     super();
 
-    this.state = {};
+    this.state = {
+      backgroundColor: Colors.darkBlack
+    };
 
     ReactMixin(this, StyleResizable);
     ReactMixin(this, StylePropable);
@@ -32,7 +33,7 @@ export default class MainBar extends React.Component {
         position: 'relative',
         zIndex: ThemeManager.getMuiTheme().zIndex.appBar + 1,
         top: 0,
-        backgroundColor: Colors.darkBlack
+        backgroundColor: this.state.backgroundColor
       },
       iconButton: {
         color: Colors.darkWhite
@@ -45,6 +46,18 @@ export default class MainBar extends React.Component {
 
     return styles;
   }
+
+  handleStickyStateChange = (shouldBeSticky) => {
+    if (shouldBeSticky) {
+      this.setState({
+        backgroundColor: Colors.white
+      });
+    } else {
+      this.setState({
+        backgroundColor: Colors.darkBlack
+      });
+    }
+  };
 
   render () {
     let showMenuIconButton = false,
@@ -63,7 +76,8 @@ export default class MainBar extends React.Component {
     }
 
     return (
-      <AppBar
+      <Sticky onStickyStateChange={this.handleStickyStateChange}>
+        <AppBar
         onLeftIconButtonTouchTap={this.props.onLeftIconButtonTouchTap}
         title={<Link to='/'><img src={logo + '.png'} style={styles.logo}/></Link>}
         zDepth={0}
@@ -71,7 +85,8 @@ export default class MainBar extends React.Component {
         style={styles.appBar}
         showMenuIconButton={showMenuIconButton}
         titleStyle={titleStyle}
-      />
+        />
+      </Sticky>
     );
   }
 }
