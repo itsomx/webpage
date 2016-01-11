@@ -2,34 +2,34 @@ import Color from 'material-ui/lib/styles/colors';
 import {IconButton} from 'material-ui';
 
 const SIZE = {
-  SMALL: '18px',
-  MEDIUM: '24px',
-  LARGE: '36px',
-  EXTRA_LARGE: '48px'
-},
-BACKGROUND = {
-  DARK: Color.white,
-  LIGHT: Color.black
-};
+    SMALL: '18px',
+    MEDIUM: '24px',
+    LARGE: '36px',
+    EXTRA_LARGE: '48px'
+  },
+  BACKGROUND = {
+    DARK: Color.white,
+    LIGHT: Color.black
+  };
 
 export default class MaterialIcon extends React.Component {
   static SIZE = SIZE;
   static BACKGROUND = BACKGROUND;
 
   static propTypes = {
-    backgound: React.PropTypes.string,
+    background: React.PropTypes.string,
     color: React.PropTypes.string,
     icon: React.PropTypes.string,
     inactive: React.PropTypes.bool,
     size: React.PropTypes.string,
-    style: React.PropTypes.object
+    iconStyle: React.PropTypes.object
   };
 
   static defaultProps = {
-      background: BACKGROUND.LIGHT,
-      inactive: false,
-      size: SIZE.MEDIUM,
-      style: {}
+    background: BACKGROUND.LIGHT,
+    inactive: false,
+    size: SIZE.MEDIUM,
+    iconStyle: {}
   };
 
   render () {
@@ -39,7 +39,7 @@ export default class MaterialIcon extends React.Component {
       icon,
       inactive,
       size,
-      style,
+      iconStyle,
       ...other
     } = this.props;
 
@@ -55,17 +55,17 @@ export default class MaterialIcon extends React.Component {
         color = 'rgba(0, 0, 0, 0.26)';
       }
     }
-    style.color = color;
+    iconStyle.color = color;
 
     if (size) {
-      style.fontSize = size;
+      iconStyle.fontSize = size;
     }
 
     return (
       <IconButton
         iconClassName='material-icons'
         size={size}
-        iconStyle={style}
+        iconStyle={iconStyle}
         disabled={inactive}
         {...other}
       >

@@ -7,8 +7,11 @@ export default class Section extends React.Component {
   };
 
   render () {
+    const {
+      ...other
+    } = this.props;
     return (
-        <ClearFix className={'section ' + styles['section']}>
+        <ClearFix className={'section ' + styles['section']} {...other}>
           {this.props.children}
         </ClearFix>
     );

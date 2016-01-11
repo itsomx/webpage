@@ -1,4 +1,5 @@
 import MainTheme from 'styles/themes/MainTheme';
+import CoreLayout from 'layouts/CoreLayout';
 import MainBar from 'components/MainBar';
 import Footer from 'components/Footer';
 import MainLeftNav from 'components/MainLeftNav';
@@ -171,9 +172,9 @@ export default class Root extends React.Component {
           onRequestChangeList={this.handleRequestChangeList}
           open={leftNavOpen}
         />
-        <div>
+        <CoreLayout>
           {children}
-        </div>
+        </CoreLayout>
         <Footer/>
         {this.devTools}
       </div>

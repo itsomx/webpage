@@ -1,7 +1,6 @@
 import { Link } from 'react-router';
 import AppBar from 'material-ui/lib/app-bar';
 import {IconButton} from 'material-ui';
-import coreStyles from 'styles/core.scss';
 import MainTabs from 'components/MainTabs';
 import MaterialIcon from 'components/MaterialIcon.jsx';
 import ReactMixin from 'react-mixin';
@@ -18,7 +17,7 @@ export default class MainBar extends React.Component {
   static propTypes = {};
 
   constructor () {
-    super ();
+    super();
 
     this.state = {};
 
@@ -32,10 +31,15 @@ export default class MainBar extends React.Component {
       appBar: {
         position: 'relative',
         zIndex: ThemeManager.getMuiTheme().zIndex.appBar + 1,
-        top: 0
+        top: 0,
+        backgroundColor: Colors.darkBlack
       },
       iconButton: {
         color: Colors.darkWhite
+      },
+      logo: {
+        height: '50px',
+        marginBottom: '-15px'
       }
     };
 
@@ -60,9 +64,8 @@ export default class MainBar extends React.Component {
 
     return (
       <AppBar
-        className={coreStyles['main-bar']}
         onLeftIconButtonTouchTap={this.props.onLeftIconButtonTouchTap}
-        title={<Link to='/'><img src={logo + '.png'} className={coreStyles['logo']}/></Link>}
+        title={<Link to='/'><img src={logo + '.png'} style={styles.logo}/></Link>}
         zDepth={0}
         iconElementRight={elementRight}
         style={styles.appBar}
