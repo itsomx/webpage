@@ -29,7 +29,7 @@ export default class MainBlack extends React.Component {
 
     return (
       <Section
-        style={{backgroundColor: Colors.darkBlack, height: window.innerHeight - 64, padding: '0 20px 0 20px', color: Colors.white}}
+        style={{backgroundColor: Colors.darkBlack, height: window.innerHeight - ThemeManager.getMuiTheme().appBar.height, padding: '0 20px 0 20px', color: Colors.white}}
       >
         <Divider style={{backgroundColor: Colors.grey600, height: '1.5px'}}/>
         Podemos poner lo que queramos aqui ya que nos sirve para mucho
