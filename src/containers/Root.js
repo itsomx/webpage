@@ -1,6 +1,6 @@
 import MainTheme from 'styles/themes/MainTheme';
 import CoreLayout from 'layouts/CoreLayout';
-import MainBar from 'components/MainBar';
+import MainView from 'views/MainView';
 import Footer from 'components/Footer';
 import MainLeftNav from 'components/MainLeftNav';
 import ReactMixin from 'react-mixin';
@@ -162,7 +162,7 @@ export default class Root extends React.Component {
 
     return (
       <div style={{ height: '100%' }}>
-        <MainBar onLeftIconButtonTouchTap={this.handleTouchTapLeftIconButton}/>
+        <MainView/>
         <MainLeftNav
           style={styles.leftNav}
           history={history}

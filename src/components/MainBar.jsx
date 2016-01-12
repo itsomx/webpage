@@ -33,7 +33,8 @@ export default class MainBar extends React.Component {
         position: 'relative',
         zIndex: ThemeManager.getMuiTheme().zIndex.appBar + 1,
         top: 0,
-        backgroundColor: this.state.backgroundColor
+        backgroundColor: this.state.backgroundColor,
+        boxShadow: 'rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.239216) 0px 1px 4px'
       },
       iconButton: {
         color: Colors.darkWhite
@@ -71,7 +72,7 @@ export default class MainBar extends React.Component {
     if (!this.isDeviceSize(StyleResizable.statics.Sizes.MEDIUM)) {
       // showMenuIconButton = true;
       elementRight = null;
-      logo = 'logo-icon';
+      // logo = 'logo-icon';
       titleStyle.textAlign = 'center';
     }
 

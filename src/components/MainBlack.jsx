@@ -6,10 +6,7 @@ import {
   StyleResizable
 } from 'material-ui/lib/mixins';
 import {
-  Colors
-} from 'material-ui/lib/styles';
-import {
-  // Colors,
+  Colors,
   ThemeManager
 } from 'material-ui/lib/styles';
 
@@ -28,10 +25,9 @@ export default class MainBlack extends React.Component {
   render () {
     return (
       <Section
-        style={{backgroundColor: Colors.darkBlack, height: window.innerHeight - ThemeManager.getMuiTheme().appBar.height, padding: '0 20px 0 20px', color: Colors.white}}
+        style={{backgroundColor: Colors.darkBlack, height: window.innerHeight - ThemeManager.getMuiTheme().appBar.height, padding: '0 20px 0 20px', color: Colors.fullWhite}}
       >
         <Divider style={{backgroundColor: Colors.grey600, height: '1.5px'}}/>
-        Podemos poner lo que queramos aqui ya que nos sirve para mucho
       </Section>
     );
   }
