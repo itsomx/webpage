@@ -20,6 +20,7 @@ export default class MainBackground extends React.Component {
 
     ReactMixin(this, StyleResizable);
     ReactMixin(this, StylePropable);
+    this._updateDeviceSize = this._updateDeviceSize.bind(this);
   }
 
   render () {

@@ -29,9 +29,9 @@ export default class Footer extends React.Component {
       backgroundColor: 'transparent'
     };
 
-    if (!this.isDeviceSize(StyleResizable.statics.Sizes.MEDIUM)) {
-      style.display = 'inline-block';
-    }
+    // if (!this.isDeviceSize(StyleResizable.statics.Sizes.MEDIUM)) {
+    //   style.display = 'inline-block';
+    // }
 
     return {
       style: style
