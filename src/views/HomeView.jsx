@@ -6,7 +6,7 @@ export default class HomeView extends React.Component {
   render () {
     return (
       <div className='container text-center'>
-        <SectionTech/>
+        <SectionTech style={{margin: '15px 0'}}/>
       </div>
     );
   }

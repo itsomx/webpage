@@ -28,7 +28,7 @@ const styleBlock = {
       },
       img: {
         float: 'right',
-        height: '10em'
+        width: '80%'
       }
     }
   },
@@ -54,7 +54,7 @@ const styleBlock = {
       },
       img: {
         float: 'left',
-        height: '10em'
+        width: '80%'
       }
     }
   },
@@ -75,11 +75,12 @@ const styleBlock = {
     },
     tech: {
       container: {
-        width: '100%'
+        width: '100%',
+        margin: '15px 0'
       },
       img: {
         float: 'none',
-        height: '10em'
+        width: '80%'
       }
     }
   }
@@ -135,7 +136,7 @@ export default class TechBlock extends React.Component {
 
     return (
       <ClearFix>
-        <div {...other} style={{padding: '0 50px 0 50px', 'width': '100%', marginTop: '30px'}}>
+        <div {...other} style={{padding: '0 50px 0 50px', 'width': '100%', margin: '15px 0'}}>
           {divider}
           <div style={info.container}>
             <MaterialIcon icon={icon} size={MaterialIcon.SIZE.EXTRA_LARGE} background={MaterialIcon.BACKGROUND.LIGHT} style={info.icon} disabled/>

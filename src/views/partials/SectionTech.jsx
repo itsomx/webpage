@@ -25,12 +25,16 @@ const images = {
   }
 };
 
-export default class HomeView extends React.Component {
+export default class SectionTech extends React.Component {
   static propTypes = {};
 
   render () {
+    let {
+      ...other
+    } = this.props;
+
     return (
-      <Section className='tech'>
+      <Section className='tech' {...other}>
         <div className='container' style={{textAlign: 'center'}}>
           <div>
             <h1 className={coreStyles['lighter']}>Siempre lo mejor</h1>
@@ -42,7 +46,7 @@ export default class HomeView extends React.Component {
           <TechBlock icon='devices_other' title='Multiples dispositivos' align='right' imgPortrait={images.mobile.portrait} imgLandscape={images.mobile.landscape}>
             Tecnología de punta para cualquier dispositivo.
           </TechBlock>
-          <TechBlock icon='desktop_mac' title='Aplicaciones de escritorio' imgPortrait={images.mobile.portrait} imgLandscape={images.mobile.landscape}>
+          <TechBlock icon='desktop_mac' title='Aplicaciones de escritorio' imgPortrait={images.desktop.portrait} imgLandscape={images.desktop.landscape}>
             Tecnología de punta para cualquier dispositivo.
           </TechBlock>
         </div>

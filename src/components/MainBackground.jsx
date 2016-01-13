@@ -10,7 +10,7 @@ import {
   ThemeManager
 } from 'material-ui/lib/styles';
 
-export default class MainBlack extends React.Component {
+export default class MainBackground extends React.Component {
   static propTypes = {};
 
   constructor () {
@@ -25,9 +25,9 @@ export default class MainBlack extends React.Component {
   render () {
     return (
       <Section
-        style={{backgroundColor: Colors.darkBlack, height: window.innerHeight - ThemeManager.getMuiTheme().appBar.height, padding: '0 20px 0 20px', color: Colors.fullWhite}}
+        style={{backgroundColor: Colors.lightWhite, height: window.innerHeight - ThemeManager.getMuiTheme().appBar.height, padding: '0 20px 0 20px', color: Colors.fullWhite}}
       >
-        <Divider style={{backgroundColor: Colors.grey600, height: '1.5px'}}/>
+        <Divider style={{backgroundColor: Colors.faintBlack, height: '1.5px'}}/>
       </Section>
     );
   }

@@ -13,13 +13,15 @@ import {
 import Sticky from 'react-sticky';
 
 export default class MainBar extends React.Component {
-  static propTypes = {};
+  static propTypes = {
+    style: React.PropTypes.object
+  };
 
   constructor () {
     super();
 
     this.state = {
-      backgroundColor: Colors.darkBlack
+      backgroundColor: Colors.lightWhite
     };
 
     ReactMixin(this, StyleResizable);
@@ -34,7 +36,9 @@ export default class MainBar extends React.Component {
         zIndex: ThemeManager.getMuiTheme().zIndex.appBar + 1,
         top: 0,
         backgroundColor: this.state.backgroundColor,
-        boxShadow: 'rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.239216) 0px 1px 4px'
+        boxShadow: 'rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.239216) 0px 1px 4px',
+        paddingBottom: '10px',
+        paddingTop: '10px'
       },
       iconButton: {
         color: Colors.darkWhite
@@ -51,11 +55,11 @@ export default class MainBar extends React.Component {
   handleStickyStateChange = (shouldBeSticky) => {
     if (shouldBeSticky) {
       this.setState({
-        backgroundColor: Colors.white
+        backgroundColor: Colors.fullWhite
       });
     } else {
       this.setState({
-        backgroundColor: Colors.darkBlack
+        backgroundColor: Colors.lightWhite
       });
     }
   };
@@ -66,7 +70,11 @@ export default class MainBar extends React.Component {
       logo = 'logo',
       titleStyle = {
         textAlign: 'left'
-      };
+      },
+      {
+        style,
+        ...other
+      } = this.props;
 
     const styles = this.getStyles();
     if (!this.isDeviceSize(StyleResizable.statics.Sizes.MEDIUM)) {
@@ -83,7 +91,7 @@ export default class MainBar extends React.Component {
         title={<Link to='/'><img src={logo + '.png'} style={styles.logo}/></Link>}
         zDepth={0}
         iconElementRight={elementRight}
-        style={styles.appBar}
+        style={this.mergeStyles(style, styles.appBar)}
         showMenuIconButton={showMenuIconButton}
         titleStyle={titleStyle}
         />
