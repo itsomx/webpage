@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import Color from 'material-ui/lib/styles/colors';
 import { List, ListItem } from 'material-ui/lib/lists';
 import ImageIcon from 'components/ImageIcon.jsx';
@@ -50,8 +51,10 @@ export default class Footer extends React.Component {
         ITSO - 2016
         <div>
           <List style={style} {...otherListProps}>
-            <ListItem disabled>
-              <ImageIcon icon='facebook-light' size={ImageIcon.SIZE.LARGE}/>
+            <ListItem>
+              <a href='https://facebook.com/itso.mx' target='_blank'>
+                <ImageIcon icon='facebook-light' size={ImageIcon.SIZE.LARGE}/>
+              </a>
             </ListItem>
             <ListItem disabled>
               <ImageIcon icon='twitter-light' size={ImageIcon.SIZE.LARGE}/>
