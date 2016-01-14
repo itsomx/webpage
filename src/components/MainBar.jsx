@@ -90,7 +90,6 @@ export default class MainBar extends React.Component {
     return (
       <Sticky onStickyStateChange={this.handleStickyStateChange}>
         <AppBar
-        onLeftIconButtonTouchTap={this.props.onLeftIconButtonTouchTap}
         title={<Link to='/'><img src={logo + '.png'} style={styles.logo}/></Link>}
         zDepth={0}
         iconElementRight={elementRight}
