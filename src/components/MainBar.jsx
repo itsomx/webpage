@@ -21,7 +21,8 @@ export default class MainBar extends React.Component {
     super();
 
     this.state = {
-      backgroundColor: Colors.lightWhite
+      backgroundColor: Colors.lightWhite,
+      boxShadow: 'none'
     };
 
     ReactMixin(this, StyleResizable);
@@ -36,7 +37,7 @@ export default class MainBar extends React.Component {
         zIndex: ThemeManager.getMuiTheme().zIndex.appBar + 1,
         top: 0,
         backgroundColor: this.state.backgroundColor,
-        boxShadow: 'rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.239216) 0px 1px 4px',
+        boxShadow: this.state.boxShadow,
         paddingBottom: '10px',
         paddingTop: '10px'
       },
@@ -55,11 +56,13 @@ export default class MainBar extends React.Component {
   handleStickyStateChange = (shouldBeSticky) => {
     if (shouldBeSticky) {
       this.setState({
-        backgroundColor: Colors.fullWhite
+        backgroundColor: Colors.fullWhite,
+        boxShadow: 'rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.239216) 0px 1px 4px'
       });
     } else {
       this.setState({
-        backgroundColor: Colors.lightWhite
+        backgroundColor: Colors.lightWhite,
+        boxShadow: 'none'
       });
     }
   };

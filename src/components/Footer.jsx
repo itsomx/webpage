@@ -1,4 +1,3 @@
-import { Link } from 'react-router';
 import Color from 'material-ui/lib/styles/colors';
 import { List, ListItem } from 'material-ui/lib/lists';
 import ImageIcon from 'components/ImageIcon.jsx';
