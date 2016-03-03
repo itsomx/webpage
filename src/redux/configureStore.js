@@ -1,29 +1,21 @@
+import { applyMiddleware, compose, createStore } from 'redux'
 import thunk from 'redux-thunk'
 import rootReducer from './rootReducer'
-import {
-  applyMiddleware,
-  compose,
-  createStore
-} from 'redux'
+import { routerMiddleware } from 'react-router-redux'
 
-export default function configureStore (initialState) {
-  let createStoreWithMiddleware
-  const middleware = applyMiddleware(thunk)
-
+export default function configureStore (initialState = {}, history) {
+  // Compose final middleware and use devtools in debug environment
+  let middleware = applyMiddleware(thunk, routerMiddleware(history))
   if (__DEBUG__) {
-    createStoreWithMiddleware = compose(
-      middleware,
-      window.devToolsExtension
-        ? window.devToolsExtension()
-        : require('containers/DevTools').default.instrument()
-    )
-  } else {
-    createStoreWithMiddleware = compose(middleware)
+    const devTools = window.devToolsExtension
+      ? window.devToolsExtension()
+      : require('containers/DevTools').default.instrument()
+    middleware = compose(middleware, devTools)
   }
 
-  const store = createStoreWithMiddleware(createStore)(
-    rootReducer, initialState
-  )
+  // Create final store and subscribe router in debug env ie. for devtools
+  const store = middleware(createStore)(rootReducer, initialState)
+
   if (module.hot) {
     module.hot.accept('./rootReducer', () => {
       const nextRootReducer = require('./rootReducer').default

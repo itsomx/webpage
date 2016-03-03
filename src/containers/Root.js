@@ -33,10 +33,11 @@ export default class Root extends React.Component {
   }
 
   static propTypes = {
-    children: React.PropTypes.node,
+    children: React.PropTypes.node.isRequired,
     history: React.PropTypes.object.isRequired,
+    routes: PropTypes.element.isRequired,
     location: React.PropTypes.object,
-    store: React.PropTypes.string
+    store: React.PropTypes.string.isRequired
   };
 
   static childContextTypes = {
