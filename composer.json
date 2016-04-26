@@ -4,10 +4,15 @@
     "url": "https://wpackagist.org"
   }],
   "require": {
-    "wpackagist-plugin/akismet": "*",
-    "wpackagist-theme/evolve": "*",
+    "php": ">=5.4",
+    "wpackagist-plugin/akismet": "3.1.*",
+    "wpackagist-theme/evolve": "3.5.*",
     "wpackagist-plugin/redux-framework": "3.6.0.1",
     "wpackagist-theme/goran": "^1.2",
-    "wpackagist-theme/sela": "^1.0"
+    "wpackagist-theme/sela": "^1.0",
+    "johnpbloch/wordpress": "^4.5"
+  },
+  "extra": {
+    "wordpress-install-dir": "wp"
   }
 }
