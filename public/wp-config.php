@@ -12,12 +12,13 @@ if (file_exists(dirname(__FILE__).'/../production-config.php')) {
     define('WP_LOCAL_DEV', true);
     include dirname(__FILE__).'/../local-config.php';
 }
+
 // ========================
 // Custom Content Directory
 // ========================
 $protocol = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http';
 define('WP_CONTENT_DIR', dirname(__FILE__).'/wp-content');
-// define('WP_CONTENT_URL', "{$protocol}://{$_SERVER['HTTP_HOST']}/wp-content");
+define('WP_CONTENT_URL', "{$protocol}://{$_SERVER['HTTP_HOST']}/wp-content");
 
 /* Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');

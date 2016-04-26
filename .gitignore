@@ -1,12 +1,12 @@
 # local-config.php
 production-config.php
 
-/wp
+/public/wp
 /vendor
 
-!/wp-content/themes
-/wp-content/themes/*
-!/wp-content/themes/*-child
+!/public/wp-content/themes
+/public/wp-content/themes/*
+!/public/wp-content/themes/*-child
 
-!/wp-content/plugins
-/wp-content/plugins/*
+!/public/wp-content/plugins
+/public/wp-content/plugins/*

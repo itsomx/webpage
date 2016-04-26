@@ -17,17 +17,17 @@
     "wpackagist-plugin/jetpack": "^4.0"
   },
   "extra": {
-    "wordpress-install-dir": "wp",
+    "wordpress-install-dir": "public/wp",
     "installer-paths": {
-        "wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-        "wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
-        "wp-content/themes/{$name}/": ["type:wordpress-theme"]
+        "public/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+        "public/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+        "public/wp-content/themes/{$name}/": ["type:wordpress-theme"]
     }
   },
   "scripts": {
         "post-install-cmd": [
-            "cp wp/index.php ./index.php",
-            "sed -i '' \"s/\\/wp-blog-header/\\/wp\\/wp-blog-header/g\" ./index.php"
+            "cp public/wp/index.php ./public/index.php",
+            "sed -i '' \"s/\\/wp-blog-header/\\/wp\\/wp-blog-header/g\" ./public/index.php"
         ]
     }
 }
