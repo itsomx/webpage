@@ -6,6 +6,7 @@ production-config.php
 
 !/public/wp-content/themes
 /public/wp-content/themes/*
+!/public/wp-content/themes/*-child
 
 !/public/wp-content/plugins
 /public/wp-content/plugins/*
