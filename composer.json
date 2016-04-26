@@ -10,9 +10,16 @@
     "wpackagist-plugin/redux-framework": "3.6.0.1",
     "wpackagist-theme/goran": "^1.2",
     "wpackagist-theme/sela": "^1.0",
-    "johnpbloch/wordpress": "^4.5"
+    "johnpbloch/wordpress": "^4.5",
+    "johnpbloch/wordpress-core-installer": "^0.2.1"
   },
   "extra": {
     "wordpress-install-dir": "wp"
-  }
+  },
+  "scripts": {
+        "post-install-cmd": [
+            "cp wp/index.php ./index.php",
+            "sed -i ‘’ \"s/\\/wp-blog-header/\\/wp\\/wp-blog-header/g\" index.php"
+        ]
+    }
 }
