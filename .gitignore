@@ -1,4 +1,11 @@
+# local-config.php
+production-config.php
+
 /public/wp
 /vendor
-production-config.php
-# local-config.php
+
+!/public/wp-content/themes
+/public/wp-content/themes/*
+
+!/public/wp-content/plugins
+/public/wp-content/plugins/*
