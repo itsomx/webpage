@@ -5,6 +5,9 @@
   }],
   "require": {
     "wpackagist-plugin/akismet": "*",
-    "wpackagist-theme/evolve": "*"
+    "wpackagist-theme/evolve": "*",
+    "wpackagist-plugin/redux-framework": "3.6.0.1",
+    "wpackagist-theme/goran": "^1.2",
+    "wpackagist-theme/sela": "^1.0"
   }
 }

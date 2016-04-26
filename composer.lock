@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "76a021ccde2ccab8896ec624bd60e7f0",
-    "content-hash": "4dcf63aa1b9b2206133510542c0cbdff",
+    "hash": "017d84d3db66acdcb226da55d0f05f7c",
+    "content-hash": "725ec922b1efac3580f20e188ae9cd92",
     "packages": [
         {
             "name": "composer/installers",
@@ -118,7 +118,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/akismet.3.1.10.zip",
-                "reference": null,
+                "reference": "tags/3.1.10",
                 "shasum": null
             },
             "require": {
@@ -126,6 +126,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/akismet/"
+        },
+        {
+            "name": "wpackagist-plugin/redux-framework",
+            "version": "3.6.0.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/redux-framework/",
+                "reference": "tags/3.6.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/redux-framework.3.6.0.1.zip",
+                "reference": "tags/3.6.0.1",
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/redux-framework/"
         },
         {
             "name": "wpackagist-theme/evolve",
@@ -138,7 +158,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/theme/evolve.3.5.0.zip",
-                "reference": null,
+                "reference": "3.5.0",
                 "shasum": null
             },
             "require": {
@@ -146,6 +166,46 @@
             },
             "type": "wordpress-theme",
             "homepage": "https://wordpress.org/themes/evolve/"
+        },
+        {
+            "name": "wpackagist-theme/goran",
+            "version": "1.2.3",
+            "source": {
+                "type": "svn",
+                "url": "https://themes.svn.wordpress.org/goran/",
+                "reference": "1.2.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/theme/goran.1.2.3.zip",
+                "reference": "1.2.3",
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-theme",
+            "homepage": "https://wordpress.org/themes/goran/"
+        },
+        {
+            "name": "wpackagist-theme/sela",
+            "version": "1.0.12",
+            "source": {
+                "type": "svn",
+                "url": "https://themes.svn.wordpress.org/sela/",
+                "reference": "1.0.12"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/theme/sela.1.0.12.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-theme",
+            "homepage": "https://wordpress.org/themes/sela/"
         }
     ],
     "packages-dev": [],

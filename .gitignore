@@ -11,3 +11,5 @@ wp-config.php
 
 # Don’t ignore akismet plugin
 !/wp-content/plugins/akismet
+
+vendor/
