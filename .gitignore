@@ -4,12 +4,12 @@
 /public/wp
 /vendor
 
-/public/content/*
-!/public/content/themes
-/public/content/themes/*
-!/public/content/themes/*-child
-!/public/content/themes/.gitkeep
+/public/wp-content/*
+!/public/wp-content/themes
+/public/wp-content/themes/*
+!/public/wp-content/themes/*-child
+!/public/wp-content/themes/.gitkeep
 
-!/public/content/plugins
-/public/content/plugins/*
-!/public/content/plugins/.gitkeep
+!/public/wp-content/plugins
+/public/wp-content/plugins/*
+!/public/wp-content/plugins/.gitkeep

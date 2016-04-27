@@ -5,26 +5,12 @@
   "repositories": [{
     "type": "composer",
     "url": "https://wpackagist.org"
-  }, {
-    "type": "package",
-    "package": {
-      "name": "wordpress/wordpress",
-      "type": "webroot",
-      "version": "4.5.*",
-      "source": {
-        "type": "git",
-        "url": "https://github.com/WordPress/WordPress.git",
-        "reference": "4.5.*"
-      },
-      "require": {
-        "fancyguy/webroot-installer": "1.1.*"
-      }
-    }
   }],
   "require": {
     "php": ">=5.4",
     "composer/installers": "^1.0",
-    "wordpress/wordpress": "4.5.*",
+    "johnpbloch/wordpress": "4.5.*",
+    "fancyguy/webroot-installer": "1.1.*",
     "wpackagist-plugin/akismet": "3.1.*",
     "wpackagist-plugin/jetpack": "^4.0",
     "wpackagist-plugin/redux-framework": "3.6.0.*",
@@ -39,19 +25,19 @@
   },
   "minimum-stability": "dev",
   "extra": {
-    "wp-content": "public/content",
-    "webroot-dir": "public/wp",
-    "webroot-package": "wordpress/wordpress",
+    "wp-content": "./public/wp-content",
+    "webroot-dir": "./public/wp",
+    "wordpress-install-dir": "./public/wp",
     "installer-paths": {
-        "public/content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-        "public/content/plugins/{$name}/": ["type:wordpress-plugin"],
-        "public/content/themes/{$name}/": ["type:wordpress-theme"]
+      "public/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+      "public/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+      "public/wp-content/themes/{$name}/": ["type:wordpress-theme"]
     }
   },
   "scripts": {
-        "post-install-cmd": [
-            "cp ./public/wp/index.php ./public/index.php",
-            "sed -i '' \"s/\\/wp-blog-header/\\/wp\\/wp-blog-header/g\" ./public/index.php"
-        ]
+      "post-install-cmd": [
+        "cp ./public/wp/index.php ./public/index.php",
+        "sed -i '' \"s/\\/wp-blog-header/\\/wp\\/wp-blog-header/g\" ./public/index.php"
+      ]
     }
 }
