@@ -1,33 +1,57 @@
 {
+  "name": "ITSO Website",
+  "description": "ITSO Website main page",
+  "license": "propietary",
   "repositories": [{
     "type": "composer",
     "url": "https://wpackagist.org"
+  }, {
+    "type": "package",
+    "package": {
+      "name": "wordpress/wordpress",
+      "type": "webroot",
+      "version": "4.5.*",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/WordPress/WordPress.git",
+        "reference": "4.5.*"
+      },
+      "require": {
+        "fancyguy/webroot-installer": "1.1.*"
+      }
+    }
   }],
   "require": {
     "php": ">=5.4",
+    "composer/installers": "^1.0",
+    "wordpress/wordpress": "4.5.*",
     "wpackagist-plugin/akismet": "3.1.*",
-    "wpackagist-theme/evolve": "3.5.*",
+    "wpackagist-plugin/jetpack": "^4.0",
     "wpackagist-plugin/redux-framework": "3.6.0.*",
+    "wpackagist-theme/evolve": "3.5.*",
     "wpackagist-theme/goran": "^1.2",
     "wpackagist-theme/sela": "^1.0",
-    "johnpbloch/wordpress": "4.5.*",
-    "johnpbloch/wordpress-core-installer": "0.2.*",
-    "composer/installers": "^1.0",
-    "wpackagist-theme/xt-corporate-lite": "^1.0",
-    "wpackagist-plugin/jetpack": "^4.0"
+    "wpackagist-theme/xt-corporate-lite": "^1.0"
   },
+  "require-dev": {
+    "wpackagist/debug-bar": "0.8.*",
+    "wpackagist/debug-bar-console": "~0.3"
+  },
+  "minimum-stability": "dev",
   "extra": {
-    "wordpress-install-dir": "wp",
+    "wp-content": "public/content",
+    "webroot-dir": "public/wp",
+    "webroot-package": "wordpress/wordpress",
     "installer-paths": {
-        "content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-        "content/plugins/{$name}/": ["type:wordpress-plugin"],
-        "content/themes/{$name}/": ["type:wordpress-theme"]
+        "public/content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+        "public/content/plugins/{$name}/": ["type:wordpress-plugin"],
+        "public/content/themes/{$name}/": ["type:wordpress-theme"]
     }
   },
   "scripts": {
         "post-install-cmd": [
-            "cp wp/index.php ./index.php",
-            "sed -i '' \"s/\\/wp-blog-header/\\/wp\\/wp-blog-header/g\" ./index.php"
+            "cp ./public/wp/index.php ./public/index.php",
+            "sed -i '' \"s/\\/wp-blog-header/\\/wp\\/wp-blog-header/g\" ./public/index.php"
         ]
     }
 }

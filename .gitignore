@@ -1,15 +1,15 @@
-# local-config.php
-production-config.php
+# /public/local-config.php
+/public/production-config.php
 
-/wp
+/public/wp
 /vendor
 
-/content/*
-!/content/themes
-/content/themes/*
-!/content/themes/*-child
-!/content/themes/.gitkeep
+/public/content/*
+!/public/content/themes
+/public/content/themes/*
+!/public/content/themes/*-child
+!/public/content/themes/.gitkeep
 
-!/content/plugins
-/content/plugins/*
-!/content/plugins/.gitkeep
+!/public/content/plugins
+/public/content/plugins/*
+!/public/content/plugins/.gitkeep
