@@ -5,20 +5,20 @@ ini_set('display_errors', 0);
 // ===================================================
 // Load database info and local development parameters
 // ===================================================
-if (file_exists(dirname(__FILE__).'/../production-config.php')) {
+if (file_exists(dirname(__FILE__).'/production-config.php')) {
     define('WP_LOCAL_DEV', false);
-    include dirname(__FILE__).'/../production-config.php';
+    include dirname(__FILE__).'/production-config.php';
 } else {
     define('WP_LOCAL_DEV', true);
-    include dirname(__FILE__).'/../local-config.php';
+    include dirname(__FILE__).'/local-config.php';
 }
 
 // ========================
 // Custom Content Directory
 // ========================
 $protocol = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http';
-define('WP_CONTENT_DIR', dirname(__FILE__).'/wp-content');
-define('WP_CONTENT_URL', "{$protocol}://{$_SERVER['HTTP_HOST']}/wp-content");
+define('WP_CONTENT_DIR', dirname(__FILE__).'/content');
+define('WP_CONTENT_URL', "{$protocol}://{$_SERVER['HTTP_HOST']}/content");
 
 /* Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
