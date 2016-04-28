@@ -1,3 +1,5 @@
+*
 !.gitkeep
-!wp-config
-!wp-content/.gitignore
+!.gitignore
+!wp-config.php
+!wp-content

@@ -1,0 +1,12 @@
+*
+!.gitkeep
+!.gitignore
+
+!themes
+themes/*
+!themes/*-child
+!themes/.gitkeep
+
+!plugins
+plugins/*
+!plugins/.gitkeep
