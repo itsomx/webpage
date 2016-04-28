@@ -1,8 +1,6 @@
-# /public/local-config.php
-/public/production-config.php
-
-/public/wp
+/htdocs/*
 /vendor
+!/htdocs/.gitignore
 
 /public/wp-content/*
 !/public/wp-content/themes
@@ -13,3 +11,5 @@
 !/public/wp-content/plugins
 /public/wp-content/plugins/*
 !/public/wp-content/plugins/.gitkeep
+
+vvv-*
