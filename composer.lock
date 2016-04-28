@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d827c418a027ed798fdfe6056d2551e8",
-    "content-hash": "6fb4b151feeae7ff8c2ab0a9090627f9",
+    "hash": "3b804ebc21fd8bdb200ddf57cb800378",
+    "content-hash": "13521fa470ad9ab37cf3b9d7f198f0e9",
     "packages": [
         {
             "name": "composer/installers",
@@ -168,6 +168,26 @@
             "homepage": "https://wordpress.org/plugins/redux-framework/"
         },
         {
+            "name": "wpackagist-plugin/rest-api",
+            "version": "2.0-beta13",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/rest-api/",
+                "reference": "tags/2.0-beta13"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/rest-api.2.0-beta13.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/rest-api/"
+        },
+        {
             "name": "wpackagist-theme/evolve",
             "version": "3.5.0",
             "source": {
@@ -191,7 +211,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wpackagist-plugin/rest-api": 10
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
