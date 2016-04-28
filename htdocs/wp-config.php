@@ -23,12 +23,12 @@ define('WP_DEBUG', false);
 // ===================================================
 // Load database info and local development parameters
 // ===================================================
-if (file_exists('../config/production-config.php')) {
+if (file_exists(dirname(__FILE__).'/../config/production-config.php')) {
   define('WP_LOCAL_DEV', false);
-  include '../config/production-config.php';
+  include dirname(__FILE__).'/../config/production-config.php';
 } else {
   define('WP_LOCAL_DEV', true);
-  include '../config/local-config.php';
+  include dirname(__FILE__).'/../config/local-config.php';
 }
 
 
