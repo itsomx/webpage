@@ -12,7 +12,7 @@ define('DB_COLLATE', '');
 // Language
 // Leave blank for American English
 // ================================
-define('WPLANG', 'es_MX');
+define('WPLANG', '');
 
 // ======================
 // Hide errors by default

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "06f72ec93a2b28cc2cea12a255dcfb13",
-    "content-hash": "89a10e1aa260ee84d3827c44165cc11b",
+    "hash": "d827c418a027ed798fdfe6056d2551e8",
+    "content-hash": "6fb4b151feeae7ff8c2ab0a9090627f9",
     "packages": [
         {
             "name": "composer/installers",
@@ -108,91 +108,6 @@
             "time": "2016-04-13 19:46:30"
         },
         {
-            "name": "johnpbloch/wordpress",
-            "version": "4.5.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "494c0f663ff292334947097192392663b596a49e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/494c0f663ff292334947097192392663b596a49e",
-                "reference": "494c0f663ff292334947097192392663b596a49e",
-                "shasum": ""
-            },
-            "require": {
-                "johnpbloch/wordpress-core-installer": "~0.2",
-                "php": ">=5.3.2"
-            },
-            "type": "wordpress-core",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "WordPress Community",
-                    "homepage": "http://wordpress.org/about/"
-                }
-            ],
-            "description": "WordPress is web software you can use to create a beautiful website or blog.",
-            "homepage": "http://wordpress.org/",
-            "keywords": [
-                "blog",
-                "cms"
-            ],
-            "time": "2016-04-26 18:01:25"
-        },
-        {
-            "name": "johnpbloch/wordpress-core-installer",
-            "version": "0.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/johnpbloch/wordpress-core-installer.git",
-                "reference": "a04c2c383ef13aae077f36799ed2eafdebd618d2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core-installer/zipball/a04c2c383ef13aae077f36799ed2eafdebd618d2",
-                "reference": "a04c2c383ef13aae077f36799ed2eafdebd618d2",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.0"
-            },
-            "conflict": {
-                "composer/installers": "<1.0.6"
-            },
-            "require-dev": {
-                "composer/composer": "1.0.*@dev"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "johnpbloch\\Composer\\WordPressCorePlugin"
-            },
-            "autoload": {
-                "psr-0": {
-                    "johnpbloch\\Composer\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "John P. Bloch",
-                    "email": "me@johnpbloch.com"
-                }
-            ],
-            "description": "A custom installer to handle deploying WordPress with composer",
-            "keywords": [
-                "wordpress"
-            ],
-            "time": "2015-06-11 15:15:30"
-        },
-        {
             "name": "wpackagist-plugin/akismet",
             "version": "3.1.10",
             "source": {
@@ -271,66 +186,6 @@
             },
             "type": "wordpress-theme",
             "homepage": "https://wordpress.org/themes/evolve/"
-        },
-        {
-            "name": "wpackagist-theme/goran",
-            "version": "1.2.3",
-            "source": {
-                "type": "svn",
-                "url": "https://themes.svn.wordpress.org/goran/",
-                "reference": "1.2.3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/theme/goran.1.2.3.zip",
-                "reference": "1.2.3",
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-theme",
-            "homepage": "https://wordpress.org/themes/goran/"
-        },
-        {
-            "name": "wpackagist-theme/sela",
-            "version": "1.0.12",
-            "source": {
-                "type": "svn",
-                "url": "https://themes.svn.wordpress.org/sela/",
-                "reference": "1.0.12"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/theme/sela.1.0.12.zip",
-                "reference": "1.0.12",
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-theme",
-            "homepage": "https://wordpress.org/themes/sela/"
-        },
-        {
-            "name": "wpackagist-theme/xt-corporate-lite",
-            "version": "1.0.7",
-            "source": {
-                "type": "svn",
-                "url": "https://themes.svn.wordpress.org/xt-corporate-lite/",
-                "reference": "1.0.7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/theme/xt-corporate-lite.1.0.7.zip",
-                "reference": "1.0.7",
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-theme",
-            "homepage": "https://wordpress.org/themes/xt-corporate-lite/"
         }
     ],
     "packages-dev": [],

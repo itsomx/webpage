@@ -14,18 +14,12 @@
     "wpackagist-plugin/redux-framework": "3.6.0.*",
     "wpackagist-theme/evolve": "3.5.*"
   },
-  "require-dev": {
-    "wpackagist/debug-bar": "0.8.*",
-    "wpackagist/debug-bar-console": "~0.3"
-  },
+  "require-dev": {},
   "extra": {
     "installer-paths": {
       "htdocs/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
       "htdocs/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
       "htdocs/wp-content/themes/{$name}/": ["type:wordpress-theme"]
     }
-  },
-  "scripts": {
-      "post-install-cmd": []
-    }
+  }
 }
