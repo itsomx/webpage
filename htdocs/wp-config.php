@@ -2,17 +2,6 @@
 
 ini_set('display_errors', 0);
 
-// ===================================================
-// Load database info and local development parameters
-// ===================================================
-if (file_exists('../config/production-config.php')) {
-  define('WP_LOCAL_DEV', false);
-  include '../config/production-config.php';
-} else {
-  define('WP_LOCAL_DEV', true);
-  include '../config/local-config.php';
-}
-
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
 
@@ -30,6 +19,17 @@ define('WPLANG', 'es_MX');
 // ======================
 define('WP_DEBUG_DISPLAY', false);
 define('WP_DEBUG', false);
+
+// ===================================================
+// Load database info and local development parameters
+// ===================================================
+if (file_exists('../config/production-config.php')) {
+  define('WP_LOCAL_DEV', false);
+  include '../config/production-config.php';
+} else {
+  define('WP_LOCAL_DEV', true);
+  include '../config/local-config.php';
+}
 
 
 $table_prefix = 'wp_itso_';
