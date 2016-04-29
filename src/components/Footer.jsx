@@ -28,10 +28,6 @@ export default class Footer extends React.Component {
       backgroundColor: 'transparent'
     };
 
-    // if (!this.isDeviceSize(StyleResizable.statics.Sizes.MEDIUM)) {
-    //   style.display = 'inline-block';
-    // }
-
     return {
       style: style
     };
@@ -50,16 +46,14 @@ export default class Footer extends React.Component {
         ITSO - 2016
         <div>
           <List style={style} {...otherListProps}>
-            <ListItem>
-              <a href='https://facebook.com/itso.mx' target='_blank'>
-                <ImageIcon icon='facebook-light' size={ImageIcon.SIZE.LARGE}/>
-              </a>
+            <ListItem href='https://facebook.com/itso.mx' target='_blank'>
+              <ImageIcon icon='facebook-light' size={ImageIcon.SIZE.LARGE} />
             </ListItem>
-            <ListItem disabled>
-              <ImageIcon icon='twitter-light' size={ImageIcon.SIZE.LARGE}/>
+            <ListItem href='https://twitter.com/itsomx' target='_blank'>
+              <ImageIcon icon='twitter-light' size={ImageIcon.SIZE.LARGE} />
             </ListItem>
-            <ListItem disabled>
-              <ImageIcon icon='instagram-light' size={ImageIcon.SIZE.LARGE}/>
+            <ListItem href='https://instagram.com/itsomx/' target='_blank'>
+              <ImageIcon icon='instagram-light' size={ImageIcon.SIZE.LARGE} />
             </ListItem>
           </List>
         </div>
