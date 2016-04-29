@@ -1,35 +1,35 @@
-import MainTheme from 'styles/themes/MainTheme';
-import CoreLayout from 'layouts/CoreLayout';
-import MainView from 'views/MainView';
-import Footer from 'components/Footer';
-import MainLeftNav from 'components/MainLeftNav';
-import ReactMixin from 'react-mixin';
+import MainTheme from 'styles/themes/MainTheme'
+import CoreLayout from 'layouts/CoreLayout'
+import MainView from 'views/MainView'
+import Footer from 'components/Footer'
+import MainLeftNav from 'components/MainLeftNav'
+import ReactMixin from 'react-mixin'
 
+import { Spacing } from 'material-ui/lib/styles'
 import {
   StylePropable,
   StyleResizable
-} from 'material-ui/lib/mixins';
+} from 'material-ui/lib/mixins'
 
 import {
   // Colors,
-  Spacing,
   ThemeManager
-} from 'material-ui/lib/styles';
+} from 'material-ui/lib/styles'
 
 export default class Root extends React.Component {
   constructor (props) {
-    super();
+    super()
 
     this.state = {
       muiTheme: ThemeManager.getMuiTheme(),
       leftNavOpen: false
-    };
-    ReactMixin(this, StyleResizable);
-    ReactMixin(this, StylePropable);
-    this._updateDeviceSize = this._updateDeviceSize.bind(this);
-    this.handleTouchTapLeftIconButton = this.handleTouchTapLeftIconButton.bind(this);
-    this.handleChangeRequestLeftNav = this.handleChangeRequestLeftNav.bind(this);
-    this.handleRequestChangeList = this.handleRequestChangeList.bind(this);
+    }
+    ReactMixin(this, StyleResizable)
+    ReactMixin(this, StylePropable)
+    this._updateDeviceSize = this._updateDeviceSize.bind(this)
+    this.handleTouchTapLeftIconButton = this.handleTouchTapLeftIconButton.bind(this)
+    this.handleChangeRequestLeftNav = this.handleChangeRequestLeftNav.bind(this)
+    this.handleRequestChangeList = this.handleRequestChangeList.bind(this)
   }
 
   static propTypes = {
@@ -46,7 +46,7 @@ export default class Root extends React.Component {
   getChildContext () {
     return ({
       muiTheme: this.state.muiTheme
-    });
+    })
   }
 
   getStyles () {
@@ -80,61 +80,61 @@ export default class Root extends React.Component {
         // color: Colors.lightWhite,
         maxWidth: 335
       }
-    };
+    }
 
     if (this.isDeviceSize(StyleResizable.statics.Sizes.MEDIUM) ||
         this.isDeviceSize(StyleResizable.statics.Sizes.LARGE)) {
-      styles.content = this.mergeStyles(styles.content, styles.contentWhenMedium);
+      styles.content = this.mergeStyles(styles.content, styles.contentWhenMedium)
     }
 
-    return styles;
+    return styles
   }
 
   componentWillMount () {
-    const newMuiTheme = ThemeManager.getMuiTheme(MainTheme);
+    const newMuiTheme = ThemeManager.getMuiTheme(MainTheme)
     // newMuiTheme.inkBar.backgroundColor = Colors.yellow200;
     this.setState({
       muiTheme: newMuiTheme
-    });
+    })
   }
 
   componentWillReceiveProps (nextProps, nextContext) {
-    const newMuiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme;
+    const newMuiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme
     this.setState({
       muiTheme: newMuiTheme
-    });
+    })
   }
 
   handleTouchTapLeftIconButton () {
     this.setState({
       leftNavOpen: !this.state.leftNavOpen
-    });
+    })
   }
 
   handleChangeRequestLeftNav (open) {
     this.setState({
       leftNavOpen: open
-    });
+    })
   }
 
   handleRequestChangeList (event, value) {
-    this.props.history.push(value);
+    this.props.history.push(value)
     this.setState({
       leftNavOpen: false
-    });
+    })
   }
 
   get devTools () {
     if (__DEBUG__) {
       if (__DEBUG_NEW_WINDOW__) {
         if (!window.devToolsExtension) {
-          require('../redux/utils/createDevToolsWindow').default(this.props.store);
+          require('../redux/utils/createDevToolsWindow').default(this.props.store)
         } else {
-          window.devToolsExtension.open();
+          window.devToolsExtension.open()
         }
       } else if (!window.devToolsExtension) {
-        const DevTools = require('containers/DevTools').default;
-        return <DevTools />;
+        const DevTools = require('containers/DevTools').default
+        return <DevTools />
       }
     }
   }
@@ -144,26 +144,25 @@ export default class Root extends React.Component {
       history,
       location,
       children
-    } = this.props;
+    } = this.props
 
     let {
       leftNavOpen
-    } = this.state;
+    } = this.state
 
-    const styles = this.getStyles();
+    const styles = this.getStyles()
 
     if (this.isDeviceSize(StyleResizable.statics.Sizes.LARGE)) {
       styles.leftNav = {
         zIndex: styles.appBar.zIndex - 1
-      };
-
-      styles.root.paddingLeft = 256;
-      styles.footer.paddingLeft = 256;
+      }
+      styles.root.paddingLeft = 256
+      styles.footer.paddingLeft = 256
     }
 
     return (
       <div style={{ height: '100%' }}>
-        <MainView />
+        <MainView/>
         <MainLeftNav
           style={styles.leftNav}
           history={history}
@@ -176,9 +175,9 @@ export default class Root extends React.Component {
         <CoreLayout>
           {children}
         </CoreLayout>
-        <Footer />
+        <Footer/>
         {this.devTools}
       </div>
-    );
+    )
   }
 }

@@ -50,8 +50,10 @@ export default class Footer extends React.Component {
         ITSO - 2016
         <div>
           <List style={style} {...otherListProps}>
-            <ListItem href='https://facebook.com/itso.mx'>
-              <ImageIcon icon='facebook-light' size={ImageIcon.SIZE.LARGE}/>
+            <ListItem>
+              <a href='https://facebook.com/itso.mx' target='_blank'>
+                <ImageIcon icon='facebook-light' size={ImageIcon.SIZE.LARGE}/>
+              </a>
             </ListItem>
             <ListItem disabled>
               <ImageIcon icon='twitter-light' size={ImageIcon.SIZE.LARGE}/>
