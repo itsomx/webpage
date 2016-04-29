@@ -14,7 +14,7 @@ const TechBlock = React.createClass({
     text: React.PropTypes.string.isRequired,
     title: React.PropTypes.string.isRequired,
     style: React.PropTypes.object,
-    children: React.PropTypes.Element,
+    children: React.PropTypes.element,
     align: React.PropTypes.string,
     imgLandscape: React.PropTypes.string.isRequired,
     imgPortrait: React.PropTypes.string.isRequired

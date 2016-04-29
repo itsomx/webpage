@@ -42,7 +42,7 @@ export default class AppLeftNav extends React.Component {
 
     ReactMixin(this, StyleResizable);
     ReactMixin(this, StylePropable);
-    this._updateDeviceSize = this._updateDeviceSize.bind(this);
+    this.updateDeviceSize = this.updateDeviceSize.bind(this);
     this.prepareStyles = this.prepareStyles.bind(this);
   }
 

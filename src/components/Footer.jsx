@@ -22,7 +22,7 @@ export default class Footer extends React.Component {
     super();
 
     ReactMixin(this, StyleResizable);
-    this._updateDeviceSize = this._updateDeviceSize.bind(this);
+    this.updateDeviceSize = this.updateDeviceSize.bind(this);
   }
 
   getPropsListItem () {

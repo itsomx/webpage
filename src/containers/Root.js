@@ -6,7 +6,7 @@ import MainLeftNav from 'components/MainLeftNav';
 import ReactMixin from 'react-mixin';
 import {
   spacing as Spacing,
-  themeManager as ThemeManager
+  getMuiTheme
 } from 'material-ui/styles';
 import StyleResizable from 'material-ui/utils/styleResizable';
 import StylePropable from 'material-ui/utils/stylePropable';
@@ -16,12 +16,12 @@ export default class Root extends React.Component {
     super();
 
     this.state = {
-      muiTheme: ThemeManager.getMuiTheme(),
+      muiTheme: getMuiTheme(),
       leftNavOpen: false
     };
     ReactMixin(this, StyleResizable);
     ReactMixin(this, StylePropable);
-    this._updateDeviceSize = this._updateDeviceSize.bind(this);
+    this.updateDeviceSize = this.updateDeviceSize.bind(this);
     this.handleTouchTapLeftIconButton = this.handleTouchTapLeftIconButton.bind(this);
     this.handleChangeRequestLeftNav = this.handleChangeRequestLeftNav.bind(this);
     this.handleRequestChangeList = this.handleRequestChangeList.bind(this);
@@ -86,7 +86,7 @@ export default class Root extends React.Component {
   }
 
   componentWillMount () {
-    const newMuiTheme = ThemeManager.getMuiTheme(MainTheme);
+    const newMuiTheme = getMuiTheme(MainTheme);
     // newMuiTheme.inkBar.backgroundColor = Colors.yellow200;
     this.setState({
       muiTheme: newMuiTheme

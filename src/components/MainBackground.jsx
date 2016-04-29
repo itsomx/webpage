@@ -6,7 +6,7 @@ import StylePropable from 'material-ui/utils/stylePropable';
 
 import {
   colors as Colors,
-  themeManager as ThemeManager
+  getMuiTheme
 } from 'material-ui/styles';
 
 export default class MainBackground extends React.Component {
@@ -19,13 +19,13 @@ export default class MainBackground extends React.Component {
 
     ReactMixin(this, StyleResizable);
     ReactMixin(this, StylePropable);
-    this._updateDeviceSize = this._updateDeviceSize.bind(this);
+    this.updateDeviceSize = this.updateDeviceSize.bind(this);
   }
 
   render () {
     return (
       <Section
-        style={{backgroundColor: Colors.lightWhite, height: window.innerHeight - ThemeManager.getMuiTheme().appBar.height, padding: '0 20px 0 20px', color: Colors.fullWhite}}
+        style={{backgroundColor: Colors.lightWhite, height: window.innerHeight - getMuiTheme().appBar.height, padding: '0 20px 0 20px', color: Colors.fullWhite}}
       >
         <Divider style={{backgroundColor: Colors.faintBlack, height: '1.5px'}} />
       </Section>

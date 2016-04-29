@@ -5,7 +5,7 @@ import StyleResizable from 'material-ui/utils/styleResizable';
 import StylePropable from 'material-ui/utils/stylePropable';
 import {
   colors as Colors,
-  themeManager as ThemeManager
+  getMuiTheme
 } from 'material-ui/styles';
 
 import Sticky from 'react-sticky';
@@ -25,14 +25,14 @@ export default class MainBar extends React.Component {
 
     ReactMixin(this, StyleResizable);
     ReactMixin(this, StylePropable);
-    this._updateDeviceSize = this._updateDeviceSize.bind(this);
+    this.updateDeviceSize = this.updateDeviceSize.bind(this);
   }
 
   getStyles () {
     const styles = {
       appBar: {
         position: 'relative',
-        zIndex: ThemeManager.getMuiTheme().zIndex.appBar + 1,
+        zIndex: getMuiTheme().zIndex.appBar + 1,
         top: 0,
         backgroundColor: this.state.backgroundColor,
         boxShadow: this.state.boxShadow,
