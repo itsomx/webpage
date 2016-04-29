@@ -1,14 +1,13 @@
 import {Divider} from 'material-ui';
 import Section from './Section';
 import ReactMixin from 'react-mixin';
+import StyleResizable from 'material-ui/utils/styleResizable';
+import StylePropable from 'material-ui/utils/stylePropable';
+
 import {
-  StylePropable,
-  StyleResizable
-} from 'material-ui/lib/mixins';
-import {
-  Colors,
-  ThemeManager
-} from 'material-ui/lib/styles';
+  colors as Colors,
+  themeManager as ThemeManager
+} from 'material-ui/styles';
 
 export default class MainBackground extends React.Component {
   static propTypes = {};
@@ -28,7 +27,7 @@ export default class MainBackground extends React.Component {
       <Section
         style={{backgroundColor: Colors.lightWhite, height: window.innerHeight - ThemeManager.getMuiTheme().appBar.height, padding: '0 20px 0 20px', color: Colors.fullWhite}}
       >
-        <Divider style={{backgroundColor: Colors.faintBlack, height: '1.5px'}}/>
+        <Divider style={{backgroundColor: Colors.faintBlack, height: '1.5px'}} />
       </Section>
     );
   }

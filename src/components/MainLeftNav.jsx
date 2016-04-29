@@ -1,21 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router';
 import {
+  LeftNav
+} from 'material-ui';
+import {
   List,
   ListItem,
-  LeftNav,
-  Colors,
-  Spacing,
-  Typography } from 'material-ui';
+  MakeSelectable
+} from 'material-ui/List';
 import coreStyles from 'styles/core.scss';
-import { SelectableContainerEnhance } from 'material-ui/lib/hoc/selectable-enhance';
 
 import ReactMixin from 'react-mixin';
-import {
-  StylePropable,
-  StyleResizable } from 'material-ui/lib/mixins';
+import StyleResizable from 'material-ui/utils/styleResizable';
+import StylePropable from 'material-ui/utils/stylePropable';
 
-const SelectableList = SelectableContainerEnhance(List);
+const SelectableList = MakeSelectable(List);
 
 export default class AppLeftNav extends React.Component {
 
@@ -31,11 +30,11 @@ export default class AppLeftNav extends React.Component {
 
   static contextTypes = {
     muiTheme: React.PropTypes.object,
-    router: React.PropTypes.func,
+    router: React.PropTypes.func
   };
 
   constructor () {
-    super ();
+    super();
 
     this.state = {
       open: false
@@ -54,11 +53,11 @@ export default class AppLeftNav extends React.Component {
   handleTouchTapHeader = () => {
     this.props.history.push('/');
     this.setState({
-      leftNavOpen: false,
+      leftNavOpen: false
     });
   }
 
-  get styles() {
+  get styles () {
     return {
       logo: {
         textAlign: 'center'
@@ -66,14 +65,14 @@ export default class AppLeftNav extends React.Component {
     };
   }
 
-  render() {
+  render () {
     let {
       location,
       docked,
       onRequestChangeLeftNav,
       onRequestChangeList,
       open,
-      style,
+      style
     } = this.props;
 
     const styles = this.styles;
@@ -92,7 +91,7 @@ export default class AppLeftNav extends React.Component {
           style={this.prepareStyles(styles.logo)}
           onTouchTap={this.handleTouchTapHeader}
         >
-          <Link to='/'><img src='logo-icon.png' className={coreStyles['logo']}/></Link>
+          <Link to='/'><img src='logo-icon.png' className={coreStyles['logo']} /></Link>
         </div>
         <SelectableList
           valueLink={{

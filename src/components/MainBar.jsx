@@ -1,14 +1,12 @@
 import { Link } from 'react-router';
-import AppBar from 'material-ui/lib/app-bar';
+import AppBar from 'material-ui/AppBar';
 import ReactMixin from 'react-mixin';
+import StyleResizable from 'material-ui/utils/styleResizable';
+import StylePropable from 'material-ui/utils/stylePropable';
 import {
-  StylePropable,
-  StyleResizable
-} from 'material-ui/lib/mixins';
-import {
-  Colors,
-  ThemeManager
-} from 'material-ui/lib/styles';
+  colors as Colors,
+  themeManager as ThemeManager
+} from 'material-ui/styles';
 
 import Sticky from 'react-sticky';
 

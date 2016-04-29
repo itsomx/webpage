@@ -1,8 +1,10 @@
-import {ClearFix} from 'material-ui';
+import {
+  ClearFix,
+  Divider
+} from 'material-ui';
 import coreStyles from 'styles/core.scss';
-import MaterialIcon from 'components/MaterialIcon.jsx';
-import {StyleResizable} from 'material-ui/lib/mixins';
-import {Divider} from 'material-ui';
+import MaterialIcon from 'components/MaterialIcon';
+import StyleResizable from 'material-ui/utils/styleResizable';
 
 const TechBlock = React.createClass({
   mixins: [StyleResizable],
@@ -126,7 +128,7 @@ const TechBlock = React.createClass({
       let stylesPortrait = this.getStyles('portrait');
       info = stylesPortrait.info;
       tech = stylesPortrait.tech;
-      divider = (<Divider/>);
+      divider = (<Divider />);
     }
 
     return (
@@ -138,12 +140,12 @@ const TechBlock = React.createClass({
         }}>
           {divider}
           <div style={info.container}>
-            <MaterialIcon icon={icon} size={MaterialIcon.SIZE.EXTRA_LARGE} background={MaterialIcon.BACKGROUND.LIGHT} style={info.icon} disabled/>
+            <MaterialIcon icon={icon} size={MaterialIcon.SIZE.EXTRA_LARGE} background={MaterialIcon.BACKGROUND.LIGHT} style={info.icon} disabled />
             <h4 className={coreStyles['lighter']} style={info.text}>{title}</h4>
             <p style={info.text}>{this.props.children}</p>
           </div>
           <div style={tech.container}>
-            <img src={imgLandscape} style={tech.img}/>
+            <img src={imgLandscape} style={tech.img} />
           </div>
         </div>
       </ClearFix>

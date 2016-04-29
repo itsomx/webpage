@@ -1,13 +1,15 @@
 import React from 'react';
-import {ClearFix, Mixins, Styles} from 'material-ui';
-let {StylePropable, StyleResizable} = Mixins;
-let DesktopGutter = Styles.Spacing.desktopGutter;
+import ClearFix from 'material-ui/internal/ClearFix';
+import { spacing as Spacing } from 'material-ui/styles';
+import StyleResizable from 'material-ui/utils/styleResizable';
+import StylePropable from 'material-ui/utils/stylePropable';
+let DesktopGutter = Spacing.desktopGutter;
 
 const FullWidthSection = React.createClass({
 
   mixins: [
     StylePropable,
-    StyleResizable,
+    StyleResizable
   ],
 
   propTypes: {
@@ -15,44 +17,44 @@ const FullWidthSection = React.createClass({
     contentStyle: React.PropTypes.object,
     contentType: React.PropTypes.string,
     style: React.PropTypes.object,
-    useContent: React.PropTypes.bool,
+    useContent: React.PropTypes.bool
   },
 
-  getDefaultProps() {
+  getDefaultProps () {
     return {
       useContent: false,
-      contentType: 'div',
+      contentType: 'div'
     };
   },
 
-  getStyles() {
+  getStyles () {
     return {
       root: {
-        padding: DesktopGutter + 'px',
-        boxSizing: 'border-box',
+        padding: `${DesktopGutter} px`,
+        boxSizing: 'border-box'
       },
       content: {
         maxWidth: '1200px',
-        margin: '0 auto',
+        margin: '0 auto'
       },
       rootWhenSmall: {
         paddingTop: DesktopGutter * 2,
-        paddingBottom: DesktopGutter * 2,
+        paddingBottom: DesktopGutter * 2
       },
       rootWhenLarge: {
         paddingTop: DesktopGutter * 3,
-        paddingBottom: DesktopGutter * 3,
-      },
+        paddingBottom: DesktopGutter * 3
+      }
     };
   },
 
-  render() {
+  render () {
     let {
       style,
       useContent,
       contentType,
       contentStyle,
-      ...other,
+      ...other
     } = this.props;
 
     let styles = this.getStyles();
@@ -79,7 +81,7 @@ const FullWidthSection = React.createClass({
         {content}
       </ClearFix>
     );
-  },
+  }
 });
 
 export default FullWidthSection;

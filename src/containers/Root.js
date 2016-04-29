@@ -4,17 +4,12 @@ import MainView from 'views/MainView';
 import Footer from 'components/Footer';
 import MainLeftNav from 'components/MainLeftNav';
 import ReactMixin from 'react-mixin';
-
-import { Spacing } from 'material-ui/lib/styles';
 import {
-  StylePropable,
-  StyleResizable
-} from 'material-ui/lib/mixins';
-
-import {
-  // Colors,
-  ThemeManager
-} from 'material-ui/lib/styles';
+  spacing as Spacing,
+  themeManager as ThemeManager
+} from 'material-ui/styles';
+import StyleResizable from 'material-ui/utils/styleResizable';
+import StylePropable from 'material-ui/utils/stylePropable';
 
 export default class Root extends React.Component {
   constructor (props) {
@@ -162,7 +157,7 @@ export default class Root extends React.Component {
 
     return (
       <div style={{ height: '100%' }}>
-        <MainView/>
+        <MainView />
         <MainLeftNav
           style={styles.leftNav}
           history={history}
@@ -175,7 +170,7 @@ export default class Root extends React.Component {
         <CoreLayout>
           {children}
         </CoreLayout>
-        <Footer/>
+        <Footer />
         {this.devTools}
       </div>
     );
