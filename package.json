@@ -1,7 +1,7 @@
 {
-  "name": "itso-web-page",
-  "version": "0.1.0",
-  "description": "Main page for ITSO Company",
+  "name": "react-redux-starter-kit",
+  "version": "1.0.0",
+  "description": "Get started with React, Redux, and React-Router!",
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf dist",
@@ -18,10 +18,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/itso.mx/web-page.git"
+    "url": "git+https://github.com/davezuko/react-redux-starter-kit.git"
   },
-  "author": "Kerwyn Rojas <kerwyn.rg@gmail.com> (http://itso.mx)",
-  "license": "ISC",
+  "author": "David Zukowski <david@zuko.me> (http://zuko.me)",
+  "license": "MIT",
   "dependencies": {
     "debug": "^2.2.0",
     "dotenv": "^1.2.0",
