@@ -2,6 +2,7 @@ import { Parallax } from 'react-parallax';
 import MainBar from 'components/MainBar';
 import MainBackground from 'components/MainBackground';
 
+import { StickyContainer } from 'react-sticky';
 import backgroundImage from 'static/images/main-background.jpg';
 
 export default class MainView extends React.Component {

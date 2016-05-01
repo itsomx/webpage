@@ -1,17 +1,10 @@
 import React from 'react';
 import ClearFix from 'material-ui/internal/ClearFix';
 import { spacing as Spacing } from 'material-ui/styles';
-import StyleResizable from 'material-ui/utils/styleResizable';
-import StylePropable from 'material-ui/utils/stylePropable';
+import StyleResizable from 'utils/styleResizable';
 let DesktopGutter = Spacing.desktopGutter;
 
 const FullWidthSection = React.createClass({
-
-  mixins: [
-    StylePropable,
-    StyleResizable
-  ],
-
   propTypes: {
     children: React.PropTypes.node,
     contentStyle: React.PropTypes.object,
@@ -64,7 +57,7 @@ const FullWidthSection = React.createClass({
       content =
         React.createElement(
           contentType,
-          {style: this.mergeAndPrefix(styles.content, contentStyle)},
+          {style: Object.assign(styles.content, contentStyle)},
           this.props.children
         );
     } else {
@@ -73,11 +66,11 @@ const FullWidthSection = React.createClass({
 
     return (
       <ClearFix {...other}
-        style={this.mergeAndPrefix(
+        style={Object.assign(
           styles.root,
           style,
-          this.isDeviceSize(StyleResizable.statics.Sizes.SMALL) && styles.rootWhenSmall,
-          this.isDeviceSize(StyleResizable.statics.Sizes.LARGE) && styles.rootWhenLarge)}>
+          StyleResizable.isDeviceSize(StyleResizable.sizes.SMALL) && styles.rootWhenSmall,
+          StyleResizable.isDeviceSize(StyleResizable.sizes.LARGE) && styles.rootWhenLarge)}>
         {content}
       </ClearFix>
     );

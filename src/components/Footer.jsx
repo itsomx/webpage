@@ -5,8 +5,6 @@ import {
 } from 'material-ui/List';
 import ImageIcon from 'components/ImageIcon.jsx';
 import FullWidthSection from 'components/FullWidthSection.jsx';
-import ReactMixin from 'react-mixin';
-import StyleResizable from 'material-ui/utils/styleResizable';
 
 const styles = {
   padding: '6em 2em',
@@ -20,9 +18,6 @@ export default class Footer extends React.Component {
 
   constructor () {
     super();
-
-    ReactMixin(this, StyleResizable);
-    this.updateDeviceSize = this.updateDeviceSize.bind(this);
   }
 
   getPropsListItem () {
@@ -49,13 +44,13 @@ export default class Footer extends React.Component {
         ITSO - 2016
         <div>
           <List style={style} {...otherListProps}>
-            <ListItem value='https://facebook.com/itso.mx' target='_blank'>
+            <ListItem href='https://facebook.com/itso.mx' target='_blank'>
               <ImageIcon icon='facebook-light' size={ImageIcon.SIZE.LARGE} />
             </ListItem>
-            <ListItem value='https://twitter.com/itsomx' target='_blank'>
+            <ListItem href='https://twitter.com/itsomx' target='_blank'>
               <ImageIcon icon='twitter-light' size={ImageIcon.SIZE.LARGE} />
             </ListItem>
-            <ListItem value='https://instagram.com/itsomx/' target='_blank'>
+            <ListItem href='https://instagram.com/itsomx/' target='_blank'>
               <ImageIcon icon='instagram-light' size={ImageIcon.SIZE.LARGE} />
             </ListItem>
           </List>
