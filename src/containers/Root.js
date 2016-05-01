@@ -13,6 +13,7 @@ export default class Root extends React.Component {
   }
 
   static propTypes = {
+    children: React.PropTypes.node,
     store: React.PropTypes.string
   };
 
@@ -56,9 +57,13 @@ export default class Root extends React.Component {
   }
 
   render () {
+    const { children } = this.props;
+
     return (
       <div style={{ height: '100%' }}>
-        <CoreLayout />
+        <CoreLayout>
+          {children}
+        </CoreLayout>
         {/* {this.devTools} */}
       </div>
     );

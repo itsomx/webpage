@@ -6,12 +6,10 @@ import { Route, IndexRoute } from 'react-router';
 // very easy to navigate to files regardless of how deeply nested
 // your current file is.
 import Root from 'containers/Root';
-// import HomeView from 'views/HomeView';
-import AboutView from 'views/AboutView';
+import HomeView from 'views/HomeView';
 
 export default (
   <Route path='/' component={Root}>
-    {/*<IndexRoute component={HomeView} />*/}
-    <Route path='/about' component={AboutView} />
+    <IndexRoute component={HomeView} />
   </Route>
 );
