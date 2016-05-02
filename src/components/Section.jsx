@@ -1,5 +1,5 @@
 import styles from 'styles/components/_section.scss';
-import {ClearFix} from 'material-ui';
+import ClearFix from 'material-ui/internal/ClearFix';
 
 export default class Section extends React.Component {
   static propTypes = {
@@ -11,9 +11,9 @@ export default class Section extends React.Component {
       ...other
     } = this.props;
     return (
-        <ClearFix className={'section ' + styles['section']} {...other}>
-          {this.props.children}
-        </ClearFix>
+      <ClearFix className={'section ' + styles['section']} {...other}>
+        {this.props.children}
+      </ClearFix>
     );
   }
 }

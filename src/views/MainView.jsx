@@ -11,8 +11,8 @@ export default class MainView extends React.Component {
     } = this.props;
     return (
       <Parallax bgImage={backgroundImage} strength={400} blur={2} {...other}>
-        <MainBar/>
-        <MainBackground/>
+        <MainBar />
+        <MainBackground />
       </Parallax>
     );
   }

@@ -1,6 +1,7 @@
 import coreStyles from 'styles/core.scss';
-import Section from 'components/Section.jsx';
-import TechBlock from 'components/TechBlock.jsx';
+import BaseComponent from 'components/BaseComponent';
+import Section from 'components/Section';
+import TechBlock from 'components/TechBlock';
 
 // Images
 import webImageLandscape from 'static/images/tech/web/landscape.png';
@@ -25,7 +26,7 @@ const images = {
   }
 };
 
-export default class SectionTech extends React.Component {
+export default class SectionTech extends BaseComponent {
   static propTypes = {};
 
   render () {

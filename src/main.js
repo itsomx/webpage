@@ -1,9 +1,10 @@
 import { Provider } from 'react-redux';
-import { Router } from 'react-router';
-import { createHistory } from 'history';
-import { syncReduxAndRouter } from 'redux-simple-router';
+import { createStore, combineReducers } from 'redux';
+import { Router, browserHistory } from 'react-router';
+// import { createHistory } from 'history';
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import routes from './routes';
-import configureStore from './redux/configureStore';
+// import configureStore from './redux/configureStore';
 
 // ----- Can go away when react 1.0 release -------------
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -14,10 +15,17 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 // ------------------------------------------------------
 
-const history = createHistory();
-const store = configureStore(window.__INITIAL_STATE__);
+// Add the reducer to your store on the `routing` key
+const store = createStore(
+  combineReducers({
+    routing: routerReducer
+  })
+);
 
-syncReduxAndRouter(history, store, (state) => state.router);
+// const store = configureStore(window.__INITIAL_STATE__);
+const history = syncHistoryWithStore(browserHistory, store);
+
+// syncHistoryWithStore(history, store, (state) => state.router);
 
 // Render the React application to the DOM
 ReactDOM.render(

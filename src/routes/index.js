@@ -7,11 +7,9 @@ import { Route, IndexRoute } from 'react-router';
 // your current file is.
 import Root from 'containers/Root';
 import HomeView from 'views/HomeView';
-import AboutView from 'views/AboutView';
 
 export default (
   <Route path='/' component={Root}>
     <IndexRoute component={HomeView} />
-    <Route path='/about' component={AboutView} />
   </Route>
 );

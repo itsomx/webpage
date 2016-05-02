@@ -1,40 +1,44 @@
 import { Link } from 'react-router';
-import AppBar from 'material-ui/lib/app-bar';
-import ReactMixin from 'react-mixin';
+import BaseComponent from 'components/BaseComponent';
+import AppBar from 'material-ui/AppBar';
+import StyleResizable from 'utils/styleResizable';
 import {
-  StylePropable,
-  StyleResizable
-} from 'material-ui/lib/mixins';
-import {
-  Colors,
-  ThemeManager
-} from 'material-ui/lib/styles';
+  colors as Colors,
+  getMuiTheme
+} from 'material-ui/styles';
+import { Sticky } from 'react-sticky';
 
-import Sticky from 'react-sticky';
-
-export default class MainBar extends React.Component {
-  static propTypes = {
-    style: React.PropTypes.object
-  };
-
+export default class MainBar extends BaseComponent {
   constructor () {
-    super();
+    super({
+      // listenResize: true
+    });
 
     this.state = {
       backgroundColor: Colors.lightWhite,
       boxShadow: 'none'
     };
-
-    ReactMixin(this, StyleResizable);
-    ReactMixin(this, StylePropable);
-    this._updateDeviceSize = this._updateDeviceSize.bind(this);
   }
 
-  getStyles () {
-    const styles = {
+  componentDidMount = () => {
+    if (window.scrollY > 0) {
+      this.onStickyStateChange(true);
+    }
+  }
+
+  static propTypes = {
+    style: React.PropTypes.object
+  };
+
+  static defaultProps = {
+    style: {}
+  };
+
+  get styles () {
+    return {
       appBar: {
         position: 'relative',
-        zIndex: ThemeManager.getMuiTheme().zIndex.appBar + 1,
+        zIndex: getMuiTheme().zIndex.appBar + 1000,
         top: 0,
         backgroundColor: this.state.backgroundColor,
         boxShadow: this.state.boxShadow,
@@ -45,16 +49,14 @@ export default class MainBar extends React.Component {
         color: Colors.darkWhite
       },
       logo: {
-        height: '50px',
-        marginBottom: '-15px'
+        height: 50,
+        marginBottom: -15
       }
     };
-
-    return styles;
   }
 
-  handleStickyStateChange = (shouldBeSticky) => {
-    if (shouldBeSticky) {
+  onStickyStateChange = (isSticky) => {
+    if (isSticky) {
       this.setState({
         backgroundColor: Colors.fullWhite,
         boxShadow: 'rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.239216) 0px 1px 4px'
@@ -68,35 +70,37 @@ export default class MainBar extends React.Component {
   };
 
   render () {
-    let showMenuIconButton = false,
-      elementRight = null, // (<MainTabs/>),
-      logo = 'logo',
-      titleStyle = {
-        textAlign: 'left'
-      },
-      {
-        style,
-        ...other
-      } = this.props;
+    let showMenuIconButton = false;
+    let elementRight = null; // (<MainTabs/>);
+    let logo = 'logo';
+    let titleStyle = {
+      textAlign: 'left'
+    };
+    let {
+      style
+    } = this.props;
 
-    const styles = this.getStyles();
-    if (!this.isDeviceSize(StyleResizable.statics.Sizes.MEDIUM)) {
-      // showMenuIconButton = true;
+    const styles = this.styles;
+    console.warn('render mainbar');
+    if (StyleResizable.isDeviceSize(StyleResizable.sizes.SMALL)) {
       elementRight = null;
-      // logo = 'logo-icon';
       titleStyle.textAlign = 'center';
     }
 
     return (
-      <Sticky onStickyStateChange={this.handleStickyStateChange}>
+      <Sticky
+        onStickyStateChange={this.onStickyStateChange}
+        topOffset={0.1}
+        style={{
+          zIndex: styles.appBar.zIndex
+        }}>
         <AppBar
-        title={<Link to='/'><img src={logo + '.png'} style={styles.logo}/></Link>}
-        zDepth={0}
-        iconElementRight={elementRight}
-        style={this.mergeStyles(style, styles.appBar)}
-        showMenuIconButton={showMenuIconButton}
-        titleStyle={titleStyle}
-        />
+          title={<Link to='/'><img src={logo + '.png'} style={styles.logo} /></Link>}
+          zDepth={0}
+          iconElementRight={elementRight}
+          style={Object.assign(style, styles.appBar)}
+          showMenuIconButton={showMenuIconButton}
+          titleStyle={titleStyle} />
       </Sticky>
     );
   }

@@ -1,16 +1,16 @@
-import Color from 'material-ui/lib/styles/colors';
-import {IconButton} from 'material-ui';
+import { colors as Color } from 'material-ui/styles';
+import { IconButton } from 'material-ui';
 
 const SIZE = {
-    SMALL: '18px',
-    MEDIUM: '24px',
-    LARGE: '36px',
-    EXTRA_LARGE: '48px'
-  },
-  BACKGROUND = {
-    DARK: Color.white,
-    LIGHT: Color.black
-  };
+  SMALL: '18px',
+  MEDIUM: '24px',
+  LARGE: '36px',
+  EXTRA_LARGE: '48px'
+};
+const BACKGROUND = {
+  DARK: Color.white,
+  LIGHT: Color.black
+};
 
 export default class MaterialIcon extends React.Component {
   static SIZE = SIZE;

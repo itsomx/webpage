@@ -1,9 +1,10 @@
-import Color from 'material-ui/lib/styles/colors';
-import { List, ListItem } from 'material-ui/lib/lists';
+import { colors as Color } from 'material-ui/styles';
+import {
+  List,
+  ListItem
+} from 'material-ui/List';
 import ImageIcon from 'components/ImageIcon.jsx';
 import FullWidthSection from 'components/FullWidthSection.jsx';
-import ReactMixin from 'react-mixin';
-import { StyleResizable } from 'material-ui/lib/mixins';
 
 const styles = {
   padding: '6em 2em',
@@ -14,13 +15,6 @@ const styles = {
 
 export default class Footer extends React.Component {
   static propTypes = {};
-
-  constructor () {
-    super();
-
-    ReactMixin(this, StyleResizable);
-    this._updateDeviceSize = this._updateDeviceSize.bind(this);
-  }
 
   getPropsListItem () {
     let style = {
@@ -43,7 +37,6 @@ export default class Footer extends React.Component {
       <FullWidthSection
         style={styles} id='footer'
       >
-        ITSO - 2016
         <div>
           <List style={style} {...otherListProps}>
             <ListItem href='https://facebook.com/itso.mx' target='_blank'>
@@ -57,6 +50,7 @@ export default class Footer extends React.Component {
             </ListItem>
           </List>
         </div>
+        Todos los derechos reservados | ITSO - IT Solutions
       </FullWidthSection>
     );
   }
