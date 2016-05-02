@@ -6,21 +6,12 @@ import {
   colors as Colors,
   getMuiTheme
 } from 'material-ui/styles';
-
 import { Sticky } from 'react-sticky';
 
 export default class MainBar extends BaseComponent {
-  static propTypes = {
-    style: React.PropTypes.object
-  };
-
-  static defaultProps = {
-    style: {}
-  };
-
   constructor () {
     super({
-      listenResize: true
+      // listenResize: true
     });
 
     this.state = {
@@ -34,6 +25,14 @@ export default class MainBar extends BaseComponent {
       this.onStickyStateChange(true);
     }
   }
+
+  static propTypes = {
+    style: React.PropTypes.object
+  };
+
+  static defaultProps = {
+    style: {}
+  };
 
   get styles () {
     return {
@@ -57,7 +56,6 @@ export default class MainBar extends BaseComponent {
   }
 
   onStickyStateChange = (isSticky) => {
-    console.info('is sticky', isSticky);
     if (isSticky) {
       this.setState({
         backgroundColor: Colors.fullWhite,
@@ -79,11 +77,11 @@ export default class MainBar extends BaseComponent {
       textAlign: 'left'
     };
     let {
-      style,
-      ...other
+      style
     } = this.props;
 
     const styles = this.styles;
+    console.warn('render mainbar');
     if (StyleResizable.isDeviceSize(StyleResizable.sizes.SMALL)) {
       elementRight = null;
       titleStyle.textAlign = 'center';
@@ -97,7 +95,7 @@ export default class MainBar extends BaseComponent {
           zIndex: styles.appBar.zIndex
         }}>
         <AppBar
-          title={<Link to='/'><img src={logo + '.png'} style={styles.logo}/></Link>}
+          title={<Link to='/'><img src={logo + '.png'} style={styles.logo} /></Link>}
           zDepth={0}
           iconElementRight={elementRight}
           style={Object.assign(style, styles.appBar)}

@@ -44,13 +44,13 @@ export default class SectionTech extends BaseComponent {
           <TechBlock icon='devices' title='Web' imgPortrait={images.web.portrait} imgLandscape={images.web.landscape}>
             Tecnología de punta para cualquier dispositivo.
           </TechBlock>
-          {/*<TechBlock icon='devices_other' title='Multiples dispositivos' align='right' imgPortrait={images.mobile.portrait} imgLandscape={images.mobile.landscape}>
+          <TechBlock icon='devices_other' title='Multiples dispositivos' align='right' imgPortrait={images.mobile.portrait} imgLandscape={images.mobile.landscape}>
             Tecnología de punta para cualquier dispositivo.
-            </TechBlock>
-            <TechBlock icon='desktop_mac' title='Aplicaciones de escritorio' imgPortrait={images.desktop.portrait} imgLandscape={images.desktop.landscape}>
+          </TechBlock>
+          <TechBlock icon='desktop_mac' title='Aplicaciones de escritorio' imgPortrait={images.desktop.portrait} imgLandscape={images.desktop.landscape}>
             Tecnología de punta para cualquier dispositivo.
-          </TechBlock>*/}
-          </div>
+          </TechBlock>
+        </div>
       </Section>
     );
   }

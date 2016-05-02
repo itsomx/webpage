@@ -1,12 +1,13 @@
 import {Divider} from 'material-ui';
 import Section from './Section';
+import BaseComponent from 'components/BaseComponent';
 
 import {
   colors as Colors,
   getMuiTheme
 } from 'material-ui/styles';
 
-export default class MainBackground extends React.Component {
+export default class MainBackground extends BaseComponent {
   static propTypes = {};
 
   constructor () {

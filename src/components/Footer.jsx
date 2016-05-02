@@ -16,10 +16,6 @@ const styles = {
 export default class Footer extends React.Component {
   static propTypes = {};
 
-  constructor () {
-    super();
-  }
-
   getPropsListItem () {
     let style = {
       display: 'inline-flex',
@@ -41,7 +37,6 @@ export default class Footer extends React.Component {
       <FullWidthSection
         style={styles} id='footer'
       >
-        ITSO - 2016
         <div>
           <List style={style} {...otherListProps}>
             <ListItem href='https://facebook.com/itso.mx' target='_blank'>
@@ -55,6 +50,7 @@ export default class Footer extends React.Component {
             </ListItem>
           </List>
         </div>
+        Todos los derechos reservados | ITSO - IT Solutions
       </FullWidthSection>
     );
   }

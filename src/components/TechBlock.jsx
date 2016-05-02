@@ -1,7 +1,5 @@
-import {
-  ClearFix,
-  Divider
-} from 'material-ui';
+import { Divider } from 'material-ui';
+import ClearFix from 'material-ui/internal/ClearFix';
 import coreStyles from 'styles/core.scss';
 import BaseComponent from 'components/BaseComponent';
 import MaterialIcon from 'components/MaterialIcon';
@@ -94,7 +92,7 @@ let getStyles = (align) => {
 export default class TechBlock extends BaseComponent {
   constructor () {
     super({
-      listenResize: true
+      // listenResize: true
     });
   }
 
@@ -123,18 +121,21 @@ export default class TechBlock extends BaseComponent {
       ...other
     } = this.props;
 
-    console.info(align);
+    let image = imgLandscape;
+
     let {
       info,
       tech
     } = getStyles(align);
 
     let divider = <div />;
-
+    console.info('rerender');
     if (StyleResizable.isDeviceSize(StyleResizable.sizes.SMALL)) {
+      console.log('small');
       let stylesPortrait = getStyles('portrait');
       info = stylesPortrait.info;
       tech = stylesPortrait.tech;
+      image = imgPortrait;
       divider = (<Divider />);
     }
 
@@ -152,7 +153,7 @@ export default class TechBlock extends BaseComponent {
             <p style={info.text}>{this.props.children}</p>
           </div>
           <div style={tech.container}>
-            <img src={imgLandscape} style={tech.img} />
+            <img src={image} style={tech.img} />
           </div>
         </div>
       </ClearFix>

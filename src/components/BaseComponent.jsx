@@ -6,6 +6,8 @@ export default class BaseComponent extends React.Component {
   constructor (props) {
     super();
 
+    props = props || {};
+
     this.listenResize = props.listenResize !== undefined ? props.listenResize : this.listenResize;
 
     this.state = {
@@ -18,8 +20,9 @@ export default class BaseComponent extends React.Component {
   };
 
   componentDidMount = () => {
-    this.updateDeviceSize();
+    console.info(this.listenResize, this);
     if (this.listenResize) {
+      this.updateDeviceSize();
       if (!this.manuallyBindResize) {
         this.bindResize();
       }
@@ -33,6 +36,7 @@ export default class BaseComponent extends React.Component {
   }
 
   updateDeviceSize = () => {
+    console.info('updateDeviceSize', this);
     this.setState({
       deviceSize: StyleResizable.getDeviceSize()
     });
