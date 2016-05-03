@@ -5,89 +5,29 @@ import BaseComponent from 'components/BaseComponent';
 import MaterialIcon from 'components/MaterialIcon';
 import StyleResizable from 'utils/styleResizable';
 
-let getStyles = (align) => {
+let getStyles = () => {
   const styles = {
-    left: {
-      info: {
-        icon: {
-          float: 'left',
-          textAlign: 'left'
-        },
-        text: {
-          textAlign: 'left',
-          marginLeft: '70px'
-        },
-        container: {
-          float: 'left',
-          width: '50%'
-        }
+    info: {
+      icon: {
+        // float: 'left',
+        textAlign: 'left'
       },
-      tech: {
-        container: {
-          float: 'right',
-          width: '50%'
-        },
-        img: {
-          float: 'right',
-          width: '80%'
-        }
-      }
+      text: {
+        textAlign: 'left',
+        marginLeft: '70px'
+      },
+      container: {}
     },
-    right: {
-      info: {
-        icon: {
-          float: 'right',
-          textAlign: 'right'
-        },
-        text: {
-          textAlign: 'right',
-          marginRight: '45px'
-        },
-        container: {
-          float: 'right',
-          width: '50%'
-        }
-      },
-      tech: {
-        container: {
-          float: 'left',
-          width: '50%'
-        },
-        img: {
-          float: 'left',
-          width: '80%'
-        }
-      }
-    },
-    portrait: {
-      info: {
-        icon: {
-          float: 'none',
-          textAlign: 'center',
-          margin: '0 auto'
-        },
-        text: {
-          textAlign: 'center',
-          margin: '0 auto'
-        },
-        container: {
-          width: '100%'
-        }
-      },
-      tech: {
-        container: {
-          width: '100%',
-          margin: '15px 0'
-        },
-        img: {
-          float: 'none',
-          width: '80%'
-        }
+    tech: {
+      container: {},
+      img: {
+        // float: 'right',
+        width: '100%'
       }
     }
   };
 
-  return styles[align];
+  return styles;
 };
 export default class TechBlock extends BaseComponent {
   constructor () {
@@ -113,20 +53,21 @@ export default class TechBlock extends BaseComponent {
 
   render () {
     const {
-      align,
       title,
       icon,
       imgLandscape,
       imgPortrait,
+      style,
       ...other
     } = this.props;
 
     let image = imgLandscape;
+    let divStyle = style;
 
     let {
       info,
       tech
-    } = getStyles(align);
+    } = getStyles();
 
     let divider = <div />;
     if (StyleResizable.isDeviceSize(StyleResizable.sizes.SMALL)) {
@@ -134,25 +75,26 @@ export default class TechBlock extends BaseComponent {
       info = stylesPortrait.info;
       tech = stylesPortrait.tech;
       image = imgPortrait;
+      divStyle = Object.assign(divStyle, {
+        width: '100%'
+      });
       divider = (<Divider />);
     }
 
     return (
-      <ClearFix>
-        <div {...other} style={{
-          padding: '0 50px 0 50px',
-          'width': '100%',
-          margin: '15px 0'
-        }}>
-          {divider}
-          <div style={info.container}>
-            <MaterialIcon icon={icon} size={MaterialIcon.SIZE.EXTRA_LARGE} background={MaterialIcon.BACKGROUND.LIGHT} style={info.icon} disabled />
-            <h4 className={coreStyles['lighter']} style={info.text}>{title}</h4>
-            <p style={info.text}>{this.props.children}</p>
-          </div>
-          <div style={tech.container}>
-            <img src={image} style={tech.img} />
-          </div>
+      <ClearFix{...other} style={
+          Object.assign(divStyle, {
+            padding: '0 50px 0 50px'
+          })
+        }>
+        {divider}
+        <div style={info.container}>
+          <MaterialIcon icon={icon} size={MaterialIcon.SIZE.EXTRA_LARGE} background={MaterialIcon.BACKGROUND.LIGHT} style={info.icon} disabled />
+          <h4 className={coreStyles['lighter']} style={info.text}>{title}</h4>
+          <p style={info.text}>{this.props.children}</p>
+        </div>
+        <div style={tech.container}>
+          <img src={image} style={tech.img} />
         </div>
       </ClearFix>
     );
