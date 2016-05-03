@@ -12,7 +12,7 @@ import twIconLight from 'static/images/icons/twitter-light.png';
 import instaIconLight from 'static/images/icons/instagram-light.png';
 
 const styles = {
-  padding: '6em 2em',
+  padding: '0em 2em 2em 2em',
   textAlign: 'center',
   color: Color.white,
   backgroundColor: Color.grey900
@@ -45,7 +45,6 @@ export default class Footer extends React.Component {
 
   render () {
     let {
-      style,
       ...otherListProps
     } = this.getPropsListItem();
 
@@ -53,7 +52,9 @@ export default class Footer extends React.Component {
       <FullWidthSection
         style={styles} id='footer'
       >
-        <div>
+        <div style={{
+          marginTop: '5em'
+        }}>
           <div
             style={{
               textAlign: 'left',
@@ -73,12 +74,12 @@ export default class Footer extends React.Component {
               width: '50%',
               float: 'right'
             }}>
-            <List style={style} {...otherListProps}>
+            <List {...otherListProps}>
               {socials.map((social, index) => {
                 return <ListItem
                   key={index}
                   disabled={true}>
-                    <ImageIcon link={social.link} img={social.img} size={ImageIcon.SIZE.LARGE} />
+                  <ImageIcon link={social.link} img={social.img} size={ImageIcon.SIZE.LARGE} />
                 </ListItem>;
               })}
             </List>
