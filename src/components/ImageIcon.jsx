@@ -1,25 +1,18 @@
-import fbIconLight from 'static/images/icons/facebook-light.png';
-import twIconLight from 'static/images/icons/twitter-light.png';
-import instaIconLight from 'static/images/icons/instagram-light.png';
+import EnhancedButton from 'material-ui/internal/EnhancedButton';
 
 const SIZE = {
-    SMALL: '18',
-    MEDIUM: '24',
-    LARGE: '36',
-    EXTRA_LARGE: '48'
-  },
-  ICON = {
-    'facebook-light': fbIconLight,
-    'twitter-light': twIconLight,
-    'instagram-light': instaIconLight
-  };
+  SMALL: '18',
+  MEDIUM: '24',
+  LARGE: '36',
+  EXTRA_LARGE: '48'
+};
 
 export default class ImageIcon extends React.Component {
   static SIZE = SIZE;
-  static ICON = ICON;
   static propTypes = {
-    icon: React.PropTypes.string,
-    size: React.PropTypes.string
+    img: React.PropTypes.string,
+    size: React.PropTypes.string,
+    link: React.PropTypes.string
   };
 
   static defaultProps = {
@@ -28,12 +21,35 @@ export default class ImageIcon extends React.Component {
 
   render () {
     const {
-      icon,
       size,
+      img,
       ...other
     } = this.props;
-    return (
-      <img src={ICON[icon]} width={this.props.size + 'px'} {...other}/>
+
+    let linkProps = {};
+
+    let imgRender = (
+      <img src={img} width={size + 'px'} {...other} />
     );
+
+    if (this.props.link) {
+      let target = '_blank';
+
+      Object.assign(linkProps, {
+        href: this.props.link,
+        target: target
+      });
+
+      imgRender = (<EnhancedButton
+        ref='button'
+        centerRipple={true}
+        linkButton={true}
+        target='_blank'
+        href={this.props.link}>
+          {imgRender}
+      </EnhancedButton>);
+    }
+
+    return imgRender;
   }
 }

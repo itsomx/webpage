@@ -7,6 +7,9 @@ import {
 } from 'material-ui/List';
 import ImageIcon from 'components/ImageIcon.jsx';
 import FullWidthSection from 'components/FullWidthSection.jsx';
+import fbIconLight from 'static/images/icons/facebook-light.png';
+import twIconLight from 'static/images/icons/twitter-light.png';
+import instaIconLight from 'static/images/icons/instagram-light.png';
 
 const styles = {
   padding: '6em 2em',
@@ -17,13 +20,13 @@ const styles = {
 
 const socials = [{
   link: 'https://facebook.com/itso.mx',
-  icon: 'facebook-light'
+  img: fbIconLight
 }, {
   link: 'https://twitter.com/itsomx',
-  icon: 'twitter-light'
+  img: twIconLight
 }, {
   link: 'https://instagram.com/itsomx/',
-  icon: 'instagram-light'
+  img: instaIconLight
 }];
 
 export default class Footer extends React.Component {
@@ -72,8 +75,10 @@ export default class Footer extends React.Component {
             }}>
             <List style={style} {...otherListProps}>
               {socials.map((social, index) => {
-                return <ListItem key={index} href={social.link} target='_blank'>
-                  <ImageIcon icon={social.icon} size={ImageIcon.SIZE.LARGE} />
+                return <ListItem
+                  key={index}
+                  disabled={true}>
+                    <ImageIcon link={social.link} img={social.img} size={ImageIcon.SIZE.LARGE} />
                 </ListItem>;
               })}
             </List>
