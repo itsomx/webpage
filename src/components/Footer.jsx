@@ -50,31 +50,36 @@ export default class Footer extends React.Component {
       <FullWidthSection
         style={styles} id='footer'
       >
-        <div
-          style={{
-            textAlign: 'left'
-          }}>
-          <span>Sobre nosotros</span>
-          <p
+        <div>
+          <div
             style={{
-              fontWeight: 'lighter'
+              textAlign: 'left',
+              width: '50%',
+              float: 'left'
             }}>
-              Somos una empresa joven con ansias de innovar y
-          </p>
+            <span>Sobre nosotros</span>
+            <p
+              style={{
+                fontWeight: 'lighter'
+              }}>
+                Somos una empresa joven con ansias de innovar e integrar su empresa al mundo digital
+            </p>
+          </div>
+          <div
+            style={{
+              width: '50%',
+              float: 'right'
+            }}>
+            <List style={style} {...otherListProps}>
+              {socials.map((social, index) => {
+                return <ListItem key={index} href={social.link} target='_blank'>
+                  <ImageIcon icon={social.icon} size={ImageIcon.SIZE.LARGE} />
+                </ListItem>;
+              })}
+            </List>
+            <p>Todos los derechos reservados | ITSO - IT Solutions</p>
+          </div>
         </div>
-        <div
-          style={{
-            textAlign: 'right'
-          }}>
-          <List style={style} {...otherListProps}>
-            {socials.map((social, index) => {
-              return <ListItem key={index} href={social.link} target='_blank'>
-                <ImageIcon icon={social.icon} size={ImageIcon.SIZE.LARGE} />
-              </ListItem>;
-            })}
-          </List>
-        </div>
-        Todos los derechos reservados | ITSO - IT Solutions
       </FullWidthSection>
     );
   }

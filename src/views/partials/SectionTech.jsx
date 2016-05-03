@@ -1,5 +1,4 @@
 import { getMuiTheme } from 'material-ui/styles';
-import coreStyles from 'styles/core.scss';
 import BaseComponent from 'components/BaseComponent';
 import Section from 'components/Section';
 import TechBlock from 'components/TechBlock';
