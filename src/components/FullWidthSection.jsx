@@ -1,8 +1,11 @@
 import React from 'react';
 import ClearFix from 'material-ui/internal/ClearFix';
-import { spacing as Spacing } from 'material-ui/styles';
+import {
+  getMuiTheme
+} from 'material-ui/styles';
 import StyleResizable from 'utils/styleResizable';
-let DesktopGutter = Spacing.desktopGutter;
+const theme = getMuiTheme();
+let DesktopGutter = theme.desktopGutter;
 
 const FullWidthSection = React.createClass({
   propTypes: {

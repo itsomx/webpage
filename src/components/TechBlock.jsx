@@ -129,9 +129,7 @@ export default class TechBlock extends BaseComponent {
     } = getStyles(align);
 
     let divider = <div />;
-    console.info('rerender');
     if (StyleResizable.isDeviceSize(StyleResizable.sizes.SMALL)) {
-      console.log('small');
       let stylesPortrait = getStyles('portrait');
       info = stylesPortrait.info;
       tech = stylesPortrait.tech;

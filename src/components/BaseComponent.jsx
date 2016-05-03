@@ -20,7 +20,6 @@ export default class BaseComponent extends React.Component {
   };
 
   componentDidMount = () => {
-    console.info(this.listenResize, this);
     if (this.listenResize) {
       this.updateDeviceSize();
       if (!this.manuallyBindResize) {
@@ -35,8 +34,8 @@ export default class BaseComponent extends React.Component {
     }
   }
 
+  // TODO: Change to material-ui/utils/withWidth when merge applies
   updateDeviceSize = () => {
-    console.info('updateDeviceSize', this);
     this.setState({
       deviceSize: StyleResizable.getDeviceSize()
     });

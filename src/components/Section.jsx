@@ -3,7 +3,7 @@ import ClearFix from 'material-ui/internal/ClearFix';
 
 export default class Section extends React.Component {
   static propTypes = {
-    children: React.PropTypes.element
+    children: React.PropTypes.node
   };
 
   render () {

@@ -16,11 +16,13 @@ export default class MainBar extends BaseComponent {
 
     this.state = {
       backgroundColor: Colors.lightWhite,
-      boxShadow: 'none'
+      boxShadow: 'none',
+      theme: getMuiTheme()
     };
   }
 
   componentDidMount = () => {
+    // Fix to show white background in main bar
     if (window.scrollY > 0) {
       this.onStickyStateChange(true);
     }
@@ -38,7 +40,7 @@ export default class MainBar extends BaseComponent {
     return {
       appBar: {
         position: 'relative',
-        zIndex: getMuiTheme().zIndex.appBar + 1000,
+        zIndex: this.state.theme.zIndex.appBar + 1000,
         top: 0,
         backgroundColor: this.state.backgroundColor,
         boxShadow: this.state.boxShadow,
@@ -81,7 +83,6 @@ export default class MainBar extends BaseComponent {
     } = this.props;
 
     const styles = this.styles;
-    console.warn('render mainbar');
     if (StyleResizable.isDeviceSize(StyleResizable.sizes.SMALL)) {
       elementRight = null;
       titleStyle.textAlign = 'center';

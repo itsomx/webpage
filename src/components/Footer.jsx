@@ -1,4 +1,6 @@
-import { colors as Color } from 'material-ui/styles';
+import {
+  colors as Color
+} from 'material-ui/styles';
 import {
   List,
   ListItem
@@ -12,6 +14,17 @@ const styles = {
   color: Color.white,
   backgroundColor: Color.grey900
 };
+
+const socials = [{
+  link: 'https://facebook.com/itso.mx',
+  icon: 'facebook-light'
+}, {
+  link: 'https://twitter.com/itsomx',
+  icon: 'twitter-light'
+}, {
+  link: 'https://instagram.com/itsomx/',
+  icon: 'instagram-light'
+}];
 
 export default class Footer extends React.Component {
   static propTypes = {};
@@ -37,17 +50,28 @@ export default class Footer extends React.Component {
       <FullWidthSection
         style={styles} id='footer'
       >
-        <div>
+        <div
+          style={{
+            textAlign: 'left'
+          }}>
+          <span>Sobre nosotros</span>
+          <p
+            style={{
+              fontWeight: 'lighter'
+            }}>
+              Somos una empresa joven con ansias de innovar y
+          </p>
+        </div>
+        <div
+          style={{
+            textAlign: 'right'
+          }}>
           <List style={style} {...otherListProps}>
-            <ListItem href='https://facebook.com/itso.mx' target='_blank'>
-              <ImageIcon icon='facebook-light' size={ImageIcon.SIZE.LARGE} />
-            </ListItem>
-            <ListItem href='https://twitter.com/itsomx' target='_blank'>
-              <ImageIcon icon='twitter-light' size={ImageIcon.SIZE.LARGE} />
-            </ListItem>
-            <ListItem href='https://instagram.com/itsomx/' target='_blank'>
-              <ImageIcon icon='instagram-light' size={ImageIcon.SIZE.LARGE} />
-            </ListItem>
+            {socials.map((social, index) => {
+              return <ListItem key={index} href={social.link} target='_blank'>
+                <ImageIcon icon={social.icon} size={ImageIcon.SIZE.LARGE} />
+              </ListItem>;
+            })}
           </List>
         </div>
         Todos los derechos reservados | ITSO - IT Solutions

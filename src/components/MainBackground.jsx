@@ -12,8 +12,9 @@ export default class MainBackground extends BaseComponent {
 
   constructor () {
     super();
-
-    this.state = {};
+    this.state = {
+      theme: getMuiTheme()
+    };
   }
 
   render () {
@@ -21,15 +22,29 @@ export default class MainBackground extends BaseComponent {
       <Section
         style={{
           backgroundColor: Colors.lightWhite,
-          height: window.innerHeight - getMuiTheme().appBar.height,
+          height: window.innerHeight - this.state.theme.appBar.height,
           padding: '0 20px 0 20px',
           color: Colors.fullWhite
         }}>
         <Divider
+          muiTheme={this.state.theme}
           style={{
             backgroundColor: Colors.faintBlack,
             height: '1.5px'
           }} />
+        <Section
+          style={{
+            paddingTop: (window.innerHeight - this.state.theme.appBar.height) / 3
+          }}>
+          <h1
+            style={{
+              color: this.state.theme.palette.textColor,
+              fontWeight: 'lighter',
+              fontSize: 40
+            }}>
+            Tu tienes la idea, nosotros la realizamos
+          </h1>
+        </Section>
       </Section>
     );
   }

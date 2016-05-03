@@ -1,3 +1,4 @@
+import { getMuiTheme } from 'material-ui/styles';
 import coreStyles from 'styles/core.scss';
 import BaseComponent from 'components/BaseComponent';
 import Section from 'components/Section';
@@ -27,6 +28,13 @@ const images = {
 };
 
 export default class SectionTech extends BaseComponent {
+  constructor () {
+    super();
+    this.state = {
+      theme: getMuiTheme()
+    };
+  }
+
   static propTypes = {};
 
   render () {
@@ -38,8 +46,14 @@ export default class SectionTech extends BaseComponent {
       <Section className='tech' {...other}>
         <div className='container' style={{textAlign: 'center'}}>
           <div>
-            <h1 className={coreStyles['lighter']}>Siempre lo mejor</h1>
-            <p>Tu tienes la idea, nosotros la realizamos</p>
+            <p
+              style={{
+                color: this.state.theme.palette.textColor,
+                fontWeight: 'normal',
+                fontSize: 20
+              }}>
+              Innovando para que tu enfoque sean tus clientes
+            </p>
           </div>
           <TechBlock icon='devices' title='Web' imgPortrait={images.web.portrait} imgLandscape={images.web.landscape}>
             Tecnología de punta para cualquier dispositivo.
