@@ -13,8 +13,8 @@ import desktopImagePortrait from 'static/images/tech/desktop/portrait.png';
 
 const images = {
   web: {
-    portrait: webImagePortrait,
-    landscape: webImageLandscape
+    portrait: desktopImagePortrait,
+    landscape: desktopImageLandscape
   },
   mobile: {
     portrait: mobileImagePortrait,

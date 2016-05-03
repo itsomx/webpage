@@ -8,20 +8,13 @@ import StyleResizable from 'utils/styleResizable';
 let getStyles = () => {
   const styles = {
     info: {
-      icon: {
-        // float: 'left',
-        textAlign: 'left'
-      },
-      text: {
-        textAlign: 'left',
-        marginLeft: '70px'
-      },
+      icon: {},
+      text: {},
       container: {}
     },
     tech: {
       container: {},
       img: {
-        // float: 'right',
         width: '100%'
       }
     }
@@ -71,9 +64,9 @@ export default class TechBlock extends BaseComponent {
 
     let divider = <div />;
     if (StyleResizable.isDeviceSize(StyleResizable.sizes.SMALL)) {
-      let stylesPortrait = getStyles('portrait');
-      info = stylesPortrait.info;
-      tech = stylesPortrait.tech;
+      Object.assign(tech.img, {
+        width: '75%'
+      });
       image = imgPortrait;
       divStyle = Object.assign(divStyle, {
         width: '100%'
