@@ -71,7 +71,7 @@ export default class SectionTech extends BaseComponent {
 
   get propsListItem () {
     let style = {
-      display: '-webkit-inline-box',
+      display: 'inline-flex',
       backgroundColor: 'transparent',
       alignItems: 'center',
       paddingRight: 0
@@ -125,7 +125,7 @@ export default class SectionTech extends BaseComponent {
       </List>);
     } else {
       renderize = (<List {...otherListProps} style={Object.assign({}, style, {
-        display: '-webkit-inline-box',
+        display: 'inline-flex',
         height: '9em'
       })}>
         {images.map((imagesSection, index) => {
