@@ -1,7 +1,7 @@
 import { Divider } from 'material-ui';
 import BaseComponent from 'components/BaseComponent';
 import SectionTech from './partials/SectionTech';
-import SectionClient from './partials/SectionClient';
+import SectionService from './partials/SectionService';
 
 export default class HomeView extends BaseComponent {
   static propTypes = {};
@@ -18,7 +18,7 @@ export default class HomeView extends BaseComponent {
       <div className='container text-center'>
         <SectionTech />
         <Divider style={this.dividerStyle} />
-        <SectionClient />
+        <SectionService />
       </div>
     );
   }
