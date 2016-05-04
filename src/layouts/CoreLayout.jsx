@@ -21,7 +21,9 @@ export default class CoreLayout extends BaseComponent {
         <div className='view-container'>
           <StickyContainer>
             <MainView />
-            <div style={{margin: '15px 0'}}>
+            <div style={{
+              margin: '15px 0'
+            }}>
               {this.props.children}
             </div>
             <Footer />

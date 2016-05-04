@@ -48,15 +48,15 @@ const images = [
 const blocks = [{
   icon: 'devices',
   title: 'Web',
-  text: 'Tecnología web de punta para cualquier dispositivo'
+  text: 'Desarrollamos aplicaciones y páginas web que colocan a tu empresa en la mira de los usuarios'
 }, {
   icon: 'devices_other',
   title: 'Multiples dispositivos',
-  text: 'Tecnología movil de punta para cualquier dispositivo'
+  text: 'Utilizamos las mejores tecnologías móviles para que tu empresa esté en todos lados'
 }, {
   icon: 'desktop_mac',
   title: 'Aplicaciones de escritorio',
-  text: 'Tecnología de escritorio de punta para cualquier dispositivo'
+  text: 'Desarrollamos sistemas de negocio para ágiles para el mejor funcionamiento interno y externo de tu empresa'
 }];
 
 export default class SectionTech extends BaseComponent {
@@ -71,7 +71,7 @@ export default class SectionTech extends BaseComponent {
 
   get propsListItem () {
     let style = {
-      display: 'inline-flex',
+      display: '-webkit-inline-box',
       backgroundColor: 'transparent',
       alignItems: 'center',
       paddingRight: 0
@@ -83,7 +83,7 @@ export default class SectionTech extends BaseComponent {
   }
 
   getTechLogoItem = (image, index) => {
-    return <ListItem
+    return (<ListItem
       key={index} disabled>
       <ImageIcon
         img={image}
@@ -92,9 +92,9 @@ export default class SectionTech extends BaseComponent {
         onHoverExit={this.onHoverExitTechImage}
         style={{
           width: '3em',
-          transition: transitions.easeOut('1s', 'all')
+          transition: transitions.easeOut('600ms', 'all')
         }} />
-    </ListItem>;
+    </ListItem>);
   }
 
   get techLogos () {
@@ -125,7 +125,8 @@ export default class SectionTech extends BaseComponent {
       </List>);
     } else {
       renderize = (<List {...otherListProps} style={Object.assign({}, style, {
-        display: 'inline-flex'
+        display: '-webkit-inline-box',
+        height: '9em'
       })}>
         {images.map((imagesSection, index) => {
           return imagesSection.map((image, index) => {
@@ -167,16 +168,15 @@ export default class SectionTech extends BaseComponent {
         <div className='container' style={{
           textAlign: 'center'
         }}>
-          <div>
-            <p
+          <Section>
+            <h2
               style={{
                 color: this.state.theme.palette.textColor,
-                fontWeight: 'normal',
-                fontSize: 20
+                fontWeight: 'lighter'
               }}>
               Innovando para que tu enfoque sean tus clientes
-            </p>
-          </div>
+            </h2>
+          </Section>
           <Section>
             {blocks.map((techBlock, index) => {
               return <TechBlock
@@ -193,6 +193,7 @@ export default class SectionTech extends BaseComponent {
             })}
             <div style={{
               width: '100%'
+              // height: '9em'
             }}>
               {techLogos}
             </div>

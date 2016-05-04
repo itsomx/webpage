@@ -56,10 +56,10 @@ export default class Footer extends BaseComponent {
   get styles () {
     let styles = {
       wrapper: {
-        [StyleResizable.sizes.SMALL]: {},
-        default: {
+        [StyleResizable.sizes.SMALL]: {
           marginTop: '1em'
-        }
+        },
+        default: {}
       },
       about: {
         [StyleResizable.sizes.SMALL]: {},
@@ -103,12 +103,14 @@ export default class Footer extends BaseComponent {
         <div style={contentStyles.wrapper}>
           <div
             style={contentStyles.about}>
-            <span>Sobre nosotros</span>
+            <h3 style={{
+              fontWeight: 'normal'
+            }}>Sobre nosotros</h3>
             <p
               style={{
                 fontWeight: 'lighter'
               }}>
-              Somos una empresa joven con ansias de innovar y conectar tu empresa al mundo digital
+              Somos una empresa joven con ansias de innovar y conectar tu empresa al mundo digital llevando a todas partes la imagen de tu empresa, desde un dispositivo móvil hasta un sistema de administración para agilizar tu producción, administración y generar mayor utilidad para tu empresa
             </p>
           </div>
           <div

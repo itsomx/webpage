@@ -39,11 +39,17 @@ export default class MainBackground extends BaseComponent {
           <h1
             style={{
               color: this.state.theme.palette.textColor,
-              fontWeight: 'lighter',
+              fontWeight: 'normal',
               fontSize: 40
             }}>
             Tu tienes la idea, nosotros la realizamos
           </h1>
+          <h2 style={{
+            color: this.state.theme.palette.textColor,
+            fontWeight: 'lighter'
+          }}>
+            Colocando tu empresa en la competencia digital
+          </h2>
         </Section>
       </Section>
     );

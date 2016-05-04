@@ -16,8 +16,12 @@ export default class BaseComponent extends React.Component {
   }
 
   static propTypes = {
-    listenResize: React.PropTypes.boolean
+    listenResize: React.PropTypes.bool
   };
+
+  static defaultProps = {
+    listenResize: false
+  }
 
   componentDidMount = () => {
     if (this.listenResize) {
