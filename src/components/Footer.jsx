@@ -56,11 +56,9 @@ export default class Footer extends BaseComponent {
   get styles () {
     let styles = {
       wrapper: {
-        [StyleResizable.sizes.SMALL]: {
-          marginTop: '1em'
-        },
+        [StyleResizable.sizes.SMALL]: {},
         default: {
-          marginTop: '5em'
+          marginTop: '1em'
         }
       },
       about: {
