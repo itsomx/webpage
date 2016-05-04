@@ -7,6 +7,7 @@ import {
   ListItem
 } from 'material-ui/List';
 import BaseComponent from 'components/BaseComponent';
+import StyleResizable from 'utils/styleResizable';
 import Section from 'components/Section';
 import TechBlock from 'components/TechBlock';
 import ImageIcon from 'components/ImageIcon';
@@ -26,18 +27,22 @@ import reactImg from 'static/images/tech/web/react.png';
 import webpackImg from 'static/images/tech/web/webpack.png';
 
 const images = [
-  electronImg,
-  githubImg,
-  gitlabImg,
-  androidImg,
-  phonegapImg,
-  angularImg,
-  bowerImg,
-  html5Img,
-  nodejsImg,
-  npmjsImg,
-  reactImg,
-  webpackImg
+  [
+    electronImg,
+    githubImg,
+    gitlabImg,
+    androidImg
+  ], [
+    phonegapImg,
+    angularImg,
+    bowerImg,
+    html5Img
+  ], [
+    nodejsImg,
+    npmjsImg,
+    reactImg,
+    webpackImg
+  ]
 ];
 
 const blocks = [{
@@ -68,12 +73,69 @@ export default class SectionTech extends BaseComponent {
     let style = {
       display: 'inline-flex',
       backgroundColor: 'transparent',
-      alignItems: 'center'
+      alignItems: 'center',
+      paddingRight: 0
     };
 
     return {
       style: style
     };
+  }
+
+  getTechLogoItem = (image, index) => {
+    return <ListItem
+      key={index} disabled>
+      <ImageIcon
+        img={image}
+        hoverable
+        onHover={this.onHoverTechImage}
+        onHoverExit={this.onHoverExitTechImage}
+        style={{
+          width: '3em',
+          transition: transitions.easeOut('1s', 'all')
+        }} />
+    </ListItem>;
+  }
+
+  get techLogos () {
+    const {
+      style,
+      ...otherListProps
+    } = this.propsListItem;
+    let renderize;
+
+    if (StyleResizable.isDeviceSize(StyleResizable.sizes.SMALL)) {
+      renderize = (<List {...otherListProps} style={Object.assign({}, style, {
+        display: 'inline-block'
+      })}>
+        {images.map((imagesSection, index) => {
+          return <ListItem
+            key={index}
+            disabled
+            style={{
+              padding: 0
+            }}>
+            <List {...otherListProps} style={style}>
+              {imagesSection.map((image, index) => {
+                return this.getTechLogoItem(image, index);
+              })}
+            </List>
+          </ListItem>;
+        })}
+      </List>);
+    } else {
+      renderize = (<List {...otherListProps} style={Object.assign({}, style, {
+        display: 'inline-flex'
+      })}>
+        {images.map((imagesSection, index) => {
+          return imagesSection.map((image, index) => {
+            return this.getTechLogoItem(image, index);
+          });
+        })}
+      </List>);
+    }
+
+    return renderize;
   }
 
   onHoverTechImage = (event, imageIcon) => {
@@ -97,13 +159,8 @@ export default class SectionTech extends BaseComponent {
       ...other
     } = this.props;
 
-    const {
-      ...otherListProps
-    } = this.propsListItem;
-
     const techBlockWitdh = 100 / blocks.length;
-
-    const _this = this;
+    const techLogos = this.techLogos;
 
     return (
       <Section className='tech' {...other}>
@@ -137,23 +194,7 @@ export default class SectionTech extends BaseComponent {
             <div style={{
               width: '100%'
             }}>
-              <List {...otherListProps}>
-                {images.map((image, index) => {
-                  return <ListItem
-                    key={index}
-                    disabled>
-                    <ImageIcon
-                      img={image}
-                      onHover={_this.onHoverTechImage}
-                      onHoverExit={_this.onHoverExitTechImage}
-                      style={{
-                        width: '3em',
-                        transition: transitions.easeOut('1s', 'all')
-                      }}
-                      hoverable />
-                  </ListItem>;
-                })}
-              </List>
+              {techLogos}
             </div>
           </Section>
         </div>
