@@ -1,6 +1,8 @@
 import {Divider} from 'material-ui';
 import Section from './Section';
 import BaseComponent from 'components/BaseComponent';
+import ImageIcon from 'components/ImageIcon';
+import logoImg from 'static/logo.png';
 
 import {
   colors as Colors,
@@ -36,6 +38,11 @@ export default class MainBackground extends BaseComponent {
           style={{
             paddingTop: (window.innerHeight - this.state.theme.appBar.height) / 3
           }}>
+          <ImageIcon
+            img={logoImg}
+            style={{
+              width: 512
+            }} />
           <h1
             style={{
               color: this.state.theme.palette.textColor,

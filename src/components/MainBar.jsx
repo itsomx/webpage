@@ -1,12 +1,13 @@
 import { Link } from 'react-router';
-import BaseComponent from 'components/BaseComponent';
 import AppBar from 'material-ui/AppBar';
-import StyleResizable from 'utils/styleResizable';
 import {
   colors as Colors,
   getMuiTheme
 } from 'material-ui/styles';
 import { Sticky } from 'react-sticky';
+import BaseComponent from 'components/BaseComponent';
+import StyleResizable from 'utils/styleResizable';
+import logoImg from 'static/logo.png';
 
 export default class MainBar extends BaseComponent {
   constructor () {
@@ -74,7 +75,7 @@ export default class MainBar extends BaseComponent {
   render () {
     let showMenuIconButton = false;
     let elementRight = null; // (<MainTabs/>);
-    let logo = 'logo';
+    let logo = logoImg;
     let titleStyle = {
       textAlign: 'left'
     };
@@ -96,7 +97,7 @@ export default class MainBar extends BaseComponent {
           zIndex: styles.appBar.zIndex
         }}>
         <AppBar
-          title={<Link to='/'><img src={logo + '.png'} style={styles.logo} /></Link>}
+          title={<Link to='/'><img src={logo} style={styles.logo} /></Link>}
           zDepth={0}
           iconElementRight={elementRight}
           style={Object.assign(style, styles.appBar)}
