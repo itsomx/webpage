@@ -11,12 +11,6 @@ let getStyles = () => {
       icon: {},
       text: {},
       container: {}
-    },
-    tech: {
-      container: {},
-      img: {
-        width: '100%'
-      }
     }
   };
 
@@ -34,9 +28,7 @@ export default class TechBlock extends BaseComponent {
     title: React.PropTypes.string.isRequired,
     style: React.PropTypes.object,
     children: React.PropTypes.node,
-    align: React.PropTypes.string,
-    imgLandscape: React.PropTypes.string.isRequired,
-    imgPortrait: React.PropTypes.string.isRequired
+    align: React.PropTypes.string
   }
 
   static defaultProps = {
@@ -48,26 +40,18 @@ export default class TechBlock extends BaseComponent {
     const {
       title,
       icon,
-      imgLandscape,
-      imgPortrait,
       style,
       ...other
     } = this.props;
 
-    let image = imgLandscape;
     let divStyle = style;
 
     let {
-      info,
-      tech
+      info
     } = getStyles();
 
     let divider = <div />;
     if (StyleResizable.isDeviceSize(StyleResizable.sizes.SMALL)) {
-      Object.assign(tech.img, {
-        width: '75%'
-      });
-      image = imgPortrait;
       divStyle = Object.assign(divStyle, {
         width: '100%'
       });
@@ -85,9 +69,6 @@ export default class TechBlock extends BaseComponent {
           <MaterialIcon icon={icon} size={MaterialIcon.SIZE.EXTRA_LARGE} background={MaterialIcon.BACKGROUND.LIGHT} style={info.icon} disabled />
           <h4 className={coreStyles['lighter']} style={info.text}>{title}</h4>
           <p style={info.text}>{this.props.children}</p>
-        </div>
-        <div style={tech.container}>
-          <img src={image} style={tech.img} />
         </div>
       </ClearFix>
     );

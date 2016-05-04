@@ -5,7 +5,7 @@ import {
 } from 'material-ui/styles';
 import StyleResizable from 'utils/styleResizable';
 const theme = getMuiTheme();
-let DesktopGutter = theme.desktopGutter;
+let DesktopGutter = theme.spacing.desktopGutter;
 
 const FullWidthSection = React.createClass({
   propTypes: {

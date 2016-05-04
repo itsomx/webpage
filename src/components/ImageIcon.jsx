@@ -12,7 +12,8 @@ export default class ImageIcon extends React.Component {
     super();
 
     this.state = {
-      hovered: false
+      hovered: false,
+      style: {}
     };
   }
 
@@ -21,13 +22,17 @@ export default class ImageIcon extends React.Component {
     img: React.PropTypes.string,
     imgHover: React.PropTypes.string,
     size: React.PropTypes.string,
+    style: React.PropTypes.object,
     link: React.PropTypes.string,
-    hoverable: React.PropTypes.bool
+    hoverable: React.PropTypes.bool,
+    onHover: React.PropTypes.func,
+    onHoverExit: React.PropTypes.func
   };
 
   static defaultProps = {
     size: SIZE.MEDIUM + 'px',
-    hoverable: false
+    hoverable: false,
+    style: {}
   };
 
   onMouseEnter = (event) => {
@@ -35,7 +40,9 @@ export default class ImageIcon extends React.Component {
       this.setState({
         hovered: true
       });
-      // if (this.props.onHover) this.props.onHover(event, this.props.columnNumber);
+      if (this.props.onHover) {
+        this.props.onHover(event, this);
+      }
     }
   }
 
@@ -44,7 +51,9 @@ export default class ImageIcon extends React.Component {
       this.setState({
         hovered: false
       });
-      // if (this.props.onHoverExit) this.props.onHoverExit(event, this.props.columnNumber);
+      if (this.props.onHoverExit) {
+        this.props.onHoverExit(event, this);
+      }
     }
   }
 
@@ -53,6 +62,9 @@ export default class ImageIcon extends React.Component {
       size,
       img,
       imgHover,
+      onHover, // eslint-disable-line no-unused-vars
+      onHoverExit, // eslint-disable-line no-unused-vars
+      style,
       ...other
     } = this.props;
 
@@ -62,12 +74,19 @@ export default class ImageIcon extends React.Component {
       onMouseLeave: this.onMouseLeave
     };
 
+    let imgStyle = Object.assign({}, style, this.state.style);
+    if (!style.width) {
+      imgStyle = Object.assign({}, style, {
+        width: `${size}px`
+      });
+    }
+
     let linkProps = {};
 
-    const imgShown = this.state.hovered ? imgHover : img;
+    const imgShown = this.state.hovered && imgHover ? imgHover : img;
 
     let imgRender = (
-      <img src={imgShown} width={size + 'px'} {...other} />
+      <img src={imgShown} style={imgStyle} {...other} {...handlers} />
     );
 
     if (this.props.link) {
@@ -80,11 +99,10 @@ export default class ImageIcon extends React.Component {
 
       imgRender = (<EnhancedButton
         ref='button'
-        centerRipple={true}
-        linkButton={true}
+        centerRipple
+        linkButton
         target='_blank'
-        href={this.props.link}
-        {...handlers}>
+        href={this.props.link}>
           {imgRender}
       </EnhancedButton>);
     }

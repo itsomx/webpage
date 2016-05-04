@@ -97,7 +97,6 @@ export default class Footer extends BaseComponent {
     } = this.getPropsListItem();
 
     const contentStyles = this.styles;
-    console.info(contentStyles);
 
     return (
       <FullWidthSection
