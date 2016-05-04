@@ -5,6 +5,7 @@ import {
   List,
   ListItem
 } from 'material-ui/List';
+import _ from 'lodash';
 
 import BaseComponent from 'components/BaseComponent';
 import StyleResizable from 'utils/styleResizable';
@@ -52,12 +53,42 @@ export default class Footer extends BaseComponent {
     };
   }
 
-  getStyles = () => {
-    if (StyleResizable.isDeviceSize(StyleResizable.sizes.SMALL)) {
-      // Aplicar estilos para centrar todo el footer
-    }
+  get styles () {
+    let styles = {
+      wrapper: {
+        [StyleResizable.sizes.SMALL]: {
+          marginTop: '1em'
+        },
+        default: {
+          marginTop: '5em'
+        }
+      },
+      about: {
+        [StyleResizable.sizes.SMALL]: {},
+        default: {
+          textAlign: 'left',
+          width: '50%',
+          float: 'left'
+        }
+      },
+      social: {
+        [StyleResizable.sizes.SMALL]: {},
+        default: {
+          width: '50%',
+          float: 'right'
+        }
+      }
+    };
 
-    return {};
+    const keySize = StyleResizable.isDeviceSize(StyleResizable.sizes.SMALL) ? StyleResizable.sizes.SMALL : 'default';
+
+    _.each(styles, function (style, key) {
+      Object.assign(styles, {
+        [key]: style[keySize]
+      });
+    });
+
+    return styles;
   }
 
   render () {
@@ -65,45 +96,37 @@ export default class Footer extends BaseComponent {
       ...otherListProps
     } = this.getPropsListItem();
 
-    const contentStyles = this.getStyles();
+    const contentStyles = this.styles;
+    console.info(contentStyles);
 
     return (
       <FullWidthSection
         style={styles} id='footer'
       >
-        <div style={{
-          marginTop: '5em'
-        }}>
+        <div style={contentStyles.wrapper}>
           <div
-            style={{
-              textAlign: 'left',
-              width: '50%',
-              float: 'left'
-            }}>
+            style={contentStyles.about}>
             <span>Sobre nosotros</span>
             <p
               style={{
                 fontWeight: 'lighter'
               }}>
-                Somos una empresa joven con ansias de innovar y conectar tu empresa al mundo digital
+              Somos una empresa joven con ansias de innovar y conectar tu empresa al mundo digital
             </p>
           </div>
           <div
-            style={{
-              width: '50%',
-              float: 'right'
-            }}>
+            style={contentStyles.social}>
             <List {...otherListProps}>
               {socials.map((social, index) => {
                 return <ListItem
                   key={index}
-                  disabled={true}>
+                  disabled>
                   <ImageIcon
                     link={social.link}
                     img={social.img}
                     imgHover={social.imgHover}
                     size={ImageIcon.SIZE.LARGE}
-                    hoverable={true} />
+                    hoverable />
                 </ListItem>;
               })}
             </List>
