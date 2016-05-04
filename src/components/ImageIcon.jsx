@@ -8,28 +8,66 @@ const SIZE = {
 };
 
 export default class ImageIcon extends React.Component {
+  constructor () {
+    super();
+
+    this.state = {
+      hovered: false
+    };
+  }
+
   static SIZE = SIZE;
   static propTypes = {
     img: React.PropTypes.string,
+    imgHover: React.PropTypes.string,
     size: React.PropTypes.string,
-    link: React.PropTypes.string
+    link: React.PropTypes.string,
+    hoverable: React.PropTypes.bool
   };
 
   static defaultProps = {
-    size: SIZE.MEDIUM + 'px'
+    size: SIZE.MEDIUM + 'px',
+    hoverable: false
   };
+
+  onMouseEnter = (event) => {
+    if (this.props.hoverable) {
+      this.setState({
+        hovered: true
+      });
+      // if (this.props.onHover) this.props.onHover(event, this.props.columnNumber);
+    }
+  }
+
+  onMouseLeave = (event) => {
+    if (this.props.hoverable) {
+      this.setState({
+        hovered: false
+      });
+      // if (this.props.onHoverExit) this.props.onHoverExit(event, this.props.columnNumber);
+    }
+  }
 
   render () {
     const {
       size,
       img,
+      imgHover,
       ...other
     } = this.props;
 
+    const handlers = {
+      // onClick: this.onClick,
+      onMouseEnter: this.onMouseEnter,
+      onMouseLeave: this.onMouseLeave
+    };
+
     let linkProps = {};
 
+    const imgShown = this.state.hovered ? imgHover : img;
+
     let imgRender = (
-      <img src={img} width={size + 'px'} {...other} />
+      <img src={imgShown} width={size + 'px'} {...other} />
     );
 
     if (this.props.link) {
@@ -45,7 +83,8 @@ export default class ImageIcon extends React.Component {
         centerRipple={true}
         linkButton={true}
         target='_blank'
-        href={this.props.link}>
+        href={this.props.link}
+        {...handlers}>
           {imgRender}
       </EnhancedButton>);
     }
