@@ -1,26 +1,20 @@
 import {
   getMuiTheme
 } from 'material-ui/styles';
-// import Carousel from 'react-slick';
+import Carousel from 'nuka-carousel';
 import BaseComponent from 'components/BaseComponent';
-// import StyleResizable from 'utils/styleResizable';
+import StyleResizable from 'utils/styleResizable';
 import Section from 'components/Section';
 
-// import electronImg from 'static/images/tech/desktop/electron.png';
-// import githubImg from 'static/images/tech/desktop/github.png';
-// import gitlabImg from 'static/images/tech/desktop/gitlab.png';
-// import androidImg from 'static/images/tech/mobile/android.png';
-// import phonegapImg from 'static/images/tech/mobile/phonegap.png';
-// import angularImg from 'static/images/tech/web/angular.png';
-
-// const images = [
-//   electronImg,
-//   githubImg,
-//   gitlabImg,
-//   androidImg,
-//   phonegapImg,
-//   angularImg
-// ];
+const services = [{
+  name: 'ITSOProd',
+  description: 'Sistema ágil para el buen manejo de la producción de tus productos, permitiendote mejorar tu proceso de producción y así mejorar tus tiempos y reducir costos',
+  image: ''
+}, {
+  name: 'ITSOWeb',
+  description: 'Mejoramos tu presencia en internet, acercandote a mas usuarios dejando una buena impresión de ti en los usuarios, ademas de conectar tus servicios con la posibilidad de utilizarlos desde cualquier lugar',
+  image: ''
+}];
 
 export default class SectionService extends BaseComponent {
   constructor () {
@@ -33,23 +27,45 @@ export default class SectionService extends BaseComponent {
 
   get carouselProps () {
     return {
-      autoplay: true,
-      // centerMode: true,
-      dots: true,
-      draggable: true,
-      infinite: true,
-      lazyLoad: true,
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      swipeToSlide: true
+      dragging: true,
+      slidesToShow: 1,
+      slidesToScroll: 'auto'
     };
+  }
+
+  get styles () {
+    let styles = {
+      container: {
+        margin: '0 auto',
+        paddingLeft: 30,
+        paddingRight: 30,
+        display: 'inline-flex'
+      },
+      block: {
+        width: '50%',
+        padding: '0 50px 0 50px'
+      }
+    };
+
+    if (StyleResizable.isDeviceSize(StyleResizable.sizes.SMALL)) {
+      Object.assign(styles.container, {
+        display: 'block'
+      });
+
+      Object.assign(styles.block, {
+        width: '100%'
+      });
+    }
+
+    return styles;
   }
 
   render () {
     const {
       ...other
     } = this.props;
-    console.info(...this.carouselProps);
+
+    const styles = this.styles;
 
     return (<Section className='client' {...other}>
       <Section>
@@ -61,12 +77,18 @@ export default class SectionService extends BaseComponent {
           Algunos de nuestros servicios
         </h2>
       </Section>
-      <Section>
-        {/* <Carousel {...this.carouselProps}>
-          {images.map((image, index) => {
-            return (<div key={index}><img src={image} /></div>);
+      <Section
+        style={styles.container}>
+          {services.map((service, index) => {
+            return (<div key={index} style={styles.block}>
+              <Section style={{}}>
+                <h3 style={{
+                  fontWeight: 'lighter'
+                }}>{service.name}</h3>
+                <p style={{}}>{service.description}</p>
+              </Section>
+            </div>);
           })}
-        </Carousel>*/}
       </Section>
     </Section>);
   };

@@ -71,9 +71,13 @@ export default class SectionTech extends BaseComponent {
 
   get propsListItem () {
     let style = {
-      display: 'inline-flex',
+      display: 'flex',
       backgroundColor: 'transparent',
-      alignItems: 'center',
+      alignItems: 'flex-end',
+      flexDirection: 'row',
+      flexGrow: 1,
+      flexWrap: 'wrap',
+      justifyContent: 'space-between',
       paddingRight: 0
     };
 
@@ -102,41 +106,17 @@ export default class SectionTech extends BaseComponent {
       style,
       ...otherListProps
     } = this.propsListItem;
-    let renderize;
 
-    if (StyleResizable.isDeviceSize(StyleResizable.sizes.SMALL)) {
-      renderize = (<List {...otherListProps} style={Object.assign({}, style, {
-        display: 'inline-block'
-      })}>
-        {images.map((imagesSection, index) => {
-          return <ListItem
-            key={index}
-            disabled
-            style={{
-              padding: 0
-            }}>
-            <List {...otherListProps} style={style}>
-              {imagesSection.map((image, index) => {
-                return this.getTechLogoItem(image, index);
-              })}
-            </List>
-          </ListItem>;
-        })}
-      </List>);
-    } else {
-      renderize = (<List {...otherListProps} style={Object.assign({}, style, {
-        display: 'inline-flex',
-        height: '9em'
-      })}>
-        {images.map((imagesSection, index) => {
-          return imagesSection.map((image, index) => {
-            return this.getTechLogoItem(image, index);
-          });
-        })}
-      </List>);
-    }
-
-    return renderize;
+    return (<List {...otherListProps} style={Object.assign({}, style, {
+      display: 'flex',
+      minHeight: '10em'
+    })}>
+      {images.map((imagesSection, index) => {
+        return imagesSection.map((image, index) => {
+          return this.getTechLogoItem(image, index);
+        });
+      })}
+    </List>);
   }
 
   onHoverTechImage = (event, imageIcon) => {
