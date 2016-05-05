@@ -8,15 +8,19 @@ import {
 import BaseComponent from 'components/BaseComponent';
 import StyleResizable from 'utils/styleResizable';
 import Section from 'components/Section';
+import ImageIcon from 'components/ImageIcon';
+
+import itsoProd from 'static/images/services/itsoprod-logo.png';
+import itsoWeb from 'static/images/services/itsoweb-logo.png';
 
 const services = [{
   name: 'ITSOProd',
   description: 'Sistema ágil para el buen manejo de la producción de tus productos, permitiendote mejorar tu proceso de producción y así mejorar tus tiempos y reducir costos',
-  image: ''
+  image: itsoProd
 }, {
   name: 'ITSOWeb',
   description: 'Mejoramos tu presencia en internet, acercandote a mas usuarios dejando una buena impresión de ti en los usuarios, ademas de conectar tus servicios con la posibilidad de utilizarlos desde cualquier lugar',
-  image: ''
+  image: itsoWeb
 }];
 
 export default class SectionService extends BaseComponent {
@@ -84,27 +88,25 @@ export default class SectionService extends BaseComponent {
       <Section
         style={styles.container}>
         {services.map((service, index) => {
-          return (<Card key={index} style={styles.block}>
+          return (<Card key={index} style={Object.assign(styles.block, {
+            width: '50%'
+          })}>
             <h3 style={{
               fontWeight: 'lighter'
             }}>
-              {service.name}
+              <ImageIcon
+                img={service.image}
+                style={{
+                  width: '12em'
+                }} />
             </h3>
-            <CardText>
+            <CardText style={{
+              fontSize: 18
+            }}>
               {service.description}
             </CardText>
           </Card>);
         })}
-          {/* {services.map((service, index) => {
-            return (<div key={index} style={styles.block}>
-              <Section style={{}}>
-                <h3 style={{
-                  fontWeight: 'lighter'
-                }}>{service.name}</h3>
-                <p style={{}}>{service.description}</p>
-              </Section>
-            </div>);
-          })}*/}
       </Section>
     </Section>);
   };
