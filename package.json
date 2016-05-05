@@ -25,6 +25,8 @@
   "dependencies": {
     "debug": "^2.2.0",
     "dotenv": "^2.0.0",
+    "formsy-material-ui": "^0.4.2",
+    "formsy-react": "^0.18.0",
     "history": "^2.1.1",
     "lodash": "^4.11.2",
     "material-ui": "^0.15.0-beta.2",

@@ -4,25 +4,15 @@ import {
 import {
   Paper
 } from 'material-ui';
+import Formsy from 'formsy-react'
+import {
+  FormsyText
+} from 'formsy-material-ui';
 import BaseComponent from 'components/BaseComponent';
 import StyleResizable from 'utils/styleResizable';
 import Section from 'components/Section';
-import ImageIcon from 'components/ImageIcon';
 
-import itsoProd from 'static/images/services/itsoprod-logo.png';
-import itsoWeb from 'static/images/services/itsoweb-logo.png';
-
-const services = [{
-  name: 'ITSOProd',
-  description: 'Sistema ágil que te ayuda a mejorar tu proceso de producción y así optimizar tus tiempos y reducir costos generando una mayor utilidad',
-  image: itsoProd
-}, {
-  name: 'ITSOWeb',
-  description: 'Mejoramos tu presencia en internet, acercandote a mas usuarios dejando una buena impresión de ti en los usuarios, ademas de conectar tus servicios con la posibilidad de utilizarlos desde cualquier lugar',
-  image: itsoWeb
-}];
-
-export default class SectionService extends BaseComponent {
+export default class Contact extends BaseComponent {
   constructor () {
     super();
 
@@ -75,36 +65,21 @@ export default class SectionService extends BaseComponent {
 
     const styles = this.styles;
 
-    return (<Section className='client' {...other}>
-      <Section>
+    return (<Section className='contact' {...other}>
+      <Section style={{
+        textAlign: 'left'
+      }}>
         <h2
           style={{
             color: this.state.theme.palette.textColor,
             fontWeight: 'lighter'
           }}>
-          Algunos de nuestros servicios
+          Contacto
         </h2>
       </Section>
       <Section
         style={styles.container}>
-        {services.map((service, index) => {
-          return (<Paper key={index} style={styles.block}>
-            <h3 style={{
-              fontWeight: 'lighter'
-            }}>
-              <ImageIcon
-                img={service.image}
-                style={{
-                  width: '12em'
-                }} />
-            </h3>
-            <p style={{
-              fontSize: 18
-            }}>
-              {service.description}
-            </p>
-          </Paper>);
-        })}
+        Formulario de contacto
       </Section>
     </Section>);
   };
