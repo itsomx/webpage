@@ -1,7 +1,10 @@
 import {
   getMuiTheme
 } from 'material-ui/styles';
-import Carousel from 'nuka-carousel';
+import {
+  Card,
+  CardText
+} from 'material-ui';
 import BaseComponent from 'components/BaseComponent';
 import StyleResizable from 'utils/styleResizable';
 import Section from 'components/Section';
@@ -37,23 +40,24 @@ export default class SectionService extends BaseComponent {
     let styles = {
       container: {
         margin: '0 auto',
-        paddingLeft: 30,
-        paddingRight: 30,
-        display: 'inline-flex'
+        padding: '1em',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between'
       },
       block: {
-        width: '50%',
-        padding: '0 50px 0 50px'
+        margin: '0 1em'
       }
     };
 
     if (StyleResizable.isDeviceSize(StyleResizable.sizes.SMALL)) {
       Object.assign(styles.container, {
-        display: 'block'
+        flexDirection: 'column'
       });
 
       Object.assign(styles.block, {
-        width: '100%'
+        width: '100%',
+        margin: '1em 0'
       });
     }
 
@@ -79,7 +83,19 @@ export default class SectionService extends BaseComponent {
       </Section>
       <Section
         style={styles.container}>
-          {services.map((service, index) => {
+        {services.map((service, index) => {
+          return (<Card key={index} style={styles.block}>
+            <h3 style={{
+              fontWeight: 'lighter'
+            }}>
+              {service.name}
+            </h3>
+            <CardText>
+              {service.description}
+            </CardText>
+          </Card>);
+        })}
+          {/* {services.map((service, index) => {
             return (<div key={index} style={styles.block}>
               <Section style={{}}>
                 <h3 style={{
@@ -88,7 +104,7 @@ export default class SectionService extends BaseComponent {
                 <p style={{}}>{service.description}</p>
               </Section>
             </div>);
-          })}
+          })}*/}
       </Section>
     </Section>);
   };
