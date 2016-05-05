@@ -66,14 +66,16 @@ export default class Footer extends BaseComponent {
         default: {
           textAlign: 'left',
           width: '50%',
-          float: 'left'
+          float: 'left',
+          padding: '0 2em'
         }
       },
       social: {
         [StyleResizable.sizes.SMALL]: {},
         default: {
           width: '50%',
-          float: 'right'
+          float: 'right',
+          padding: '0 2em'
         }
       }
     };
