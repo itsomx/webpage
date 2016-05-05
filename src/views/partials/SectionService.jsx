@@ -1,26 +1,26 @@
 import {
   getMuiTheme
 } from 'material-ui/styles';
-import Carousel from 'react-slick';
+// import Carousel from 'react-slick';
 import BaseComponent from 'components/BaseComponent';
 // import StyleResizable from 'utils/styleResizable';
 import Section from 'components/Section';
 
-import electronImg from 'static/images/tech/desktop/electron.png';
-import githubImg from 'static/images/tech/desktop/github.png';
-import gitlabImg from 'static/images/tech/desktop/gitlab.png';
-import androidImg from 'static/images/tech/mobile/android.png';
-import phonegapImg from 'static/images/tech/mobile/phonegap.png';
-import angularImg from 'static/images/tech/web/angular.png';
+// import electronImg from 'static/images/tech/desktop/electron.png';
+// import githubImg from 'static/images/tech/desktop/github.png';
+// import gitlabImg from 'static/images/tech/desktop/gitlab.png';
+// import androidImg from 'static/images/tech/mobile/android.png';
+// import phonegapImg from 'static/images/tech/mobile/phonegap.png';
+// import angularImg from 'static/images/tech/web/angular.png';
 
-const images = [
-  electronImg,
-  githubImg,
-  gitlabImg,
-  androidImg,
-  phonegapImg,
-  angularImg
-];
+// const images = [
+//   electronImg,
+//   githubImg,
+//   gitlabImg,
+//   androidImg,
+//   phonegapImg,
+//   angularImg
+// ];
 
 export default class SectionService extends BaseComponent {
   constructor () {
