@@ -15,7 +15,7 @@ import itsoWeb from 'static/images/services/itsoweb-logo.png';
 
 const services = [{
   name: 'ITSOProd',
-  description: 'Sistema ágil para el buen manejo de la producción de tus productos, permitiendote mejorar tu proceso de producción y así mejorar tus tiempos y reducir costos',
+  description: 'Sistema ágil que te ayuda a mejorar tu proceso de producción y así optimizar tus tiempos y reducir costos generando una mayor utilidad',
   image: itsoProd
 }, {
   name: 'ITSOWeb',
@@ -50,6 +50,7 @@ export default class SectionService extends BaseComponent {
         justifyContent: 'space-between'
       },
       block: {
+        width: '50%',
         margin: '0 1em'
       }
     };
@@ -88,9 +89,7 @@ export default class SectionService extends BaseComponent {
       <Section
         style={styles.container}>
         {services.map((service, index) => {
-          return (<Card key={index} style={Object.assign(styles.block, {
-            width: '50%'
-          })}>
+          return (<Card key={index} style={styles.block}>
             <h3 style={{
               fontWeight: 'lighter'
             }}>
