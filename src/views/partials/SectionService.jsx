@@ -58,7 +58,7 @@ export default class SectionService extends BaseComponent {
             color: this.state.theme.palette.textColor,
             fontWeight: 'lighter'
           }}>
-          Algunos de nuestros clientes
+          Algunos de nuestros servicios
         </h2>
       </Section>
       <Section>

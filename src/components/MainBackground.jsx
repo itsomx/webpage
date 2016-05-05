@@ -1,6 +1,7 @@
 import {Divider} from 'material-ui';
 import Section from './Section';
 import BaseComponent from 'components/BaseComponent';
+import StyleResizable from 'utils/styleResizable';
 import ImageIcon from 'components/ImageIcon';
 import logoImg from 'static/logo.png';
 
@@ -19,7 +20,27 @@ export default class MainBackground extends BaseComponent {
     };
   }
 
+  get styles () {
+    let styles = {
+      logo: {
+        width: 512
+      }
+    };
+
+    if (StyleResizable.isDeviceSize(StyleResizable.sizes.SMALL)) {
+      Object.assign(styles, {
+        logo: {
+          width: 256
+        }
+      });
+    }
+
+    return styles;
+  }
+
   render () {
+    const styles = this.styles;
+
     return (
       <Section
         style={{
@@ -40,9 +61,7 @@ export default class MainBackground extends BaseComponent {
           }}>
           <ImageIcon
             img={logoImg}
-            style={{
-              width: 512
-            }} />
+            style={styles.logo} />
           <h1
             style={{
               color: this.state.theme.palette.textColor,

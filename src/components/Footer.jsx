@@ -108,7 +108,8 @@ export default class Footer extends BaseComponent {
             }}>Sobre nosotros</h3>
             <p
               style={{
-                fontWeight: 'lighter'
+                fontWeight: 'lighter',
+                textAlign: 'justify'
               }}>
               Somos una empresa joven con ansias de innovar y conectar tu empresa al mundo digital llevando a todas partes la imagen de tu empresa, desde un dispositivo móvil hasta un sistema de administración para agilizar tu producción, administración y generar mayor utilidad para tu empresa
             </p>
