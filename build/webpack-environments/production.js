@@ -44,6 +44,8 @@ export default (webpackConfig) => {
     }),
     new CopyWebpackPlugin([{
       from: `${paths.base(config.dir_client)}/contact.php`
+    }, {
+      from: `${paths.base(config.dir_client)}/static/sitemap.xml`
     }])
   );
 
