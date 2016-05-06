@@ -52,12 +52,19 @@ export default class SectionService extends BaseComponent {
         width: '50%',
         margin: '0 1em',
         padding: '2em'
+      },
+      serviceImg: {
+        width: '12em'
       }
     };
 
     if (StyleResizable.isDeviceSize(StyleResizable.sizes.SMALL)) {
       Object.assign(styles.container, {
         flexDirection: 'column'
+      });
+
+      Object.assign(styles.serviceImg, {
+        width: '70%'
       });
 
       Object.assign(styles.block, {
@@ -95,9 +102,7 @@ export default class SectionService extends BaseComponent {
             }}>
               <ImageIcon
                 img={service.image}
-                style={{
-                  width: '12em'
-                }} />
+                style={styles.serviceImg} />
             </h3>
             <p style={{
               fontSize: 18
