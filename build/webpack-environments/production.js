@@ -1,7 +1,9 @@
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import config from '../../config';
 import _debug from 'debug';
+const paths = config.utils_paths;
 
 const debug = _debug('app:webpack:production');
 
@@ -39,7 +41,10 @@ export default (webpackConfig) => {
         unused: true,
         dead_code: true
       }
-    })
+    }),
+    new CopyWebpackPlugin([{
+      from: `${paths.base(config.dir_client)}/contact.php`
+    }])
   );
 
   return webpackConfig;

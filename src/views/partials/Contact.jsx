@@ -35,6 +35,7 @@ export default class Contact extends BaseComponent {
       .post('/contact.php')
       .send(data)
       .set('Accept', 'application/json')
+      .set('Content-Type', 'application/json')
       .end((error, response) => {
         console.info(error, response);
 
@@ -182,8 +183,6 @@ export default class Contact extends BaseComponent {
               <li style={styles.listElement}>
                 <FormsyText
                   name='name'
-                  validations='isAlphanumeric'
-                  validationError={this.errorMessages.alphaNumeric}
                   required
                   hintText='Indica tu nombre'
                   floatingLabelText='* Nombre'
@@ -191,8 +190,6 @@ export default class Contact extends BaseComponent {
                 />
                 <FormsyText
                   name='company'
-                  validations='isAlphanumeric'
-                  validationError={this.errorMessages.alphaNumeric}
                   hintText='Indica el nombre de tu empresa'
                   floatingLabelText='Empresa'
                   style={styles.input}
@@ -221,8 +218,6 @@ export default class Contact extends BaseComponent {
                 <FormsyText
                   name='subject'
                   required
-                  validations='isAlphanumeric'
-                  validationError={this.errorMessages.alphaNumeric}
                   hintText='Indica un asunto para el mensaje'
                   floatingLabelText='* Asunto'
                   style={styles.input}
