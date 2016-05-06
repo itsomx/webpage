@@ -3,7 +3,8 @@ import {
 } from 'material-ui/styles';
 import {
   Paper,
-  RaisedButton
+  RaisedButton,
+  Snackbar
 } from 'material-ui';
 import IconContentSend from 'material-ui/svg-icons/content/send';
 import {
@@ -12,24 +13,51 @@ import {
 import {
   FormsyText
 } from 'formsy-material-ui';
+import request from 'superagent';
 import BaseComponent from 'components/BaseComponent';
 import StyleResizable from 'utils/styleResizable';
 import Section from 'components/Section';
-
 export default class Contact extends BaseComponent {
   constructor () {
     super();
 
     this.state = {
       theme: getMuiTheme(),
-      canSubmit: false
+      canSubmit: false,
+      openNotify: false,
+      msgNotify: ''
     };
   }
 
   submit = (data, resetForm) => {
-    alert(JSON.stringify(data, null, 4));
+    const _this = this;
+    request
+      .post('/contact.php')
+      .send(data)
+      .set('Accept', 'application/json')
+      .end((error, response) => {
+        console.info(error, response);
+
+        if (error) {
+          _this.setState({
+            openNotify: true,
+            msgNotify: 'Ha ocurrido un error con al enviar tu mensaje'
+          });
+        } else {
+          _this.setState({
+            openNotify: true,
+            msgNotify: 'Tu mensaje ha sido enviado con éxito'
+          });
+        }
+      });
     resetForm();
     this.resetForm();
+  }
+
+  onSnackbarClose = () => {
+    this.setState({
+      openNotify: false
+    });
   }
 
   resetForm = () => {
@@ -136,6 +164,12 @@ export default class Contact extends BaseComponent {
         <Paper style={{
           padding: '1em'
         }}>
+          <Snackbar
+            open={this.state.openNotify}
+            message={this.state.msgNotify}
+            autoHideDuration={5000}
+            onRequestClose={this.onSnackbarClose}
+          />
           <Form
             ref='form'
             onSubmit={this.submit}
@@ -185,10 +219,21 @@ export default class Contact extends BaseComponent {
               </li>
               <li style={styles.listElement}>
                 <FormsyText
+                  name='subject'
+                  required
+                  validations='isAlphanumeric'
+                  validationError={this.errorMessages.alphaNumeric}
+                  hintText='Indica un asunto para el mensaje'
+                  floatingLabelText='* Asunto'
+                  style={styles.input}
+                />
+              </li>
+              <li style={styles.listElement}>
+                <FormsyText
                   name='message'
                   required
                   multiLine
-                  rows={2}
+                  rows={3}
                   hintText='Escribe un mensaje para nosotros...'
                   floatingLabelText='* Mensaje'
                   style={Object.assign({}, styles.input, {
