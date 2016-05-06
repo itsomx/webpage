@@ -22,8 +22,8 @@ foreach ($contactData as $key => $value) {
 $email['message'] = implode("\r\n", $message)."\r\n\r\n{$email['message']}";
 $email['message'] = wordwrap($email['message'], 70, "\r\n");
 
-$headers = 'From: webmaster@itso.mx'."\r\n" .
-  'Reply-To: webmaster@itso.mx'."\r\n" .
+$headers = 'From: ITSO Contacto Webpage <webmaster@itso.mx>'."\r\n" .
+  'Reply-To: ITSO Contacto Webpage <webmaster@itso.mx>'."\r\n" .
   'X-Mailer: PHP/'.phpversion();
 
 $response['success'] = mail(
