@@ -24,6 +24,9 @@ export default class MainBackground extends BaseComponent {
     let styles = {
       logo: {
         width: 512
+      },
+      sectionLogo: {
+        paddingTop: '15em'
       }
     };
 
@@ -31,6 +34,9 @@ export default class MainBackground extends BaseComponent {
       Object.assign(styles, {
         logo: {
           width: 256
+        },
+        sectionLogo: {
+          paddingTop: '5em'
         }
       });
     }
@@ -38,15 +44,58 @@ export default class MainBackground extends BaseComponent {
     return styles;
   }
 
+  get headers () {
+    let headers;
+
+    let style = {
+      color: this.state.theme.palette.textColor,
+      fontWeight: 'lighter'
+    };
+
+    const messages = {
+      main: 'Tu tienes la idea, nosotros la realizamos',
+      secondary: 'Colocando tu empresa en la competencia digital'
+    };
+
+    if (StyleResizable.isDeviceSize(StyleResizable.sizes.SMALL)) {
+      headers = (<Section>
+        <h2
+          style={Object.assign({}, style, {
+            fontWeight: 'normal'
+          })}>
+          {messages.main}
+        </h2>
+        <h3 style={style}>
+          {messages.secondary}
+        </h3>
+      </Section>);
+    } else {
+      headers = (<Section>
+        <h1
+          style={Object.assign({}, style, {
+            fontWeight: 'normal'
+          })}>
+          {messages.main}
+        </h1>
+        <h2 style={style}>
+          {messages.secondary}
+        </h2>
+      </Section>);
+    }
+
+    return headers;
+  }
+
   render () {
     const styles = this.styles;
+    const headers = this.headers;
 
     return (
       <Section
         style={{
           backgroundColor: Colors.lightWhite,
           height: window.innerHeight - this.state.theme.appBar.height,
-          padding: '0 20px 0 20px',
+          padding: '0 20px',
           color: Colors.fullWhite
         }}>
         <Divider
@@ -56,26 +105,11 @@ export default class MainBackground extends BaseComponent {
             height: '1.5px'
           }} />
         <Section
-          style={{
-            paddingTop: (window.innerHeight - this.state.theme.appBar.height) / 3
-          }}>
+          style={styles.sectionLogo}>
           <ImageIcon
             img={logoImg}
             style={styles.logo} />
-          <h1
-            style={{
-              color: this.state.theme.palette.textColor,
-              fontWeight: 'normal',
-              fontSize: 40
-            }}>
-            Tu tienes la idea, nosotros la realizamos
-          </h1>
-          <h2 style={{
-            color: this.state.theme.palette.textColor,
-            fontWeight: 'lighter'
-          }}>
-            Colocando tu empresa en la competencia digital
-          </h2>
+          {headers}
         </Section>
       </Section>
     );
