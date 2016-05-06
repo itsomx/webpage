@@ -7,7 +7,6 @@ import {
   ListItem
 } from 'material-ui/List';
 import BaseComponent from 'components/BaseComponent';
-import StyleResizable from 'utils/styleResizable';
 import Section from 'components/Section';
 import TechBlock from 'components/TechBlock';
 import ImageIcon from 'components/ImageIcon';

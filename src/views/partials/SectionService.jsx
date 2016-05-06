@@ -50,7 +50,8 @@ export default class SectionService extends BaseComponent {
       },
       block: {
         width: '50%',
-        margin: '0 1em'
+        margin: '0 1em',
+        padding: '2em'
       }
     };
 
