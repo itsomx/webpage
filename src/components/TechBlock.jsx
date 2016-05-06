@@ -44,7 +44,9 @@ export default class TechBlock extends BaseComponent {
       ...other
     } = this.props;
 
-    let divStyle = style;
+    let divStyle = Object.assign({}, style, {
+      padding: '0 50px'
+    });
 
     let {
       info
@@ -53,17 +55,14 @@ export default class TechBlock extends BaseComponent {
     let divider = <div />;
     if (StyleResizable.isDeviceSize(StyleResizable.sizes.SMALL)) {
       divStyle = Object.assign(divStyle, {
-        width: '100%'
+        width: '100%',
+        padding: 0
       });
       divider = (<Divider />);
     }
 
     return (
-      <ClearFix{...other} style={
-          Object.assign(divStyle, {
-            padding: '0 50px 0 50px'
-          })
-        }>
+      <ClearFix{...other} style={divStyle}>
         {divider}
         <div style={info.container}>
           <MaterialIcon icon={icon} size={MaterialIcon.SIZE.EXTRA_LARGE} background={MaterialIcon.BACKGROUND.LIGHT} style={info.icon} disabled />
