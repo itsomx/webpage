@@ -1,1 +1,1 @@
-web: node dist/
+web: ./node_modules/.bin/http-server ./dist

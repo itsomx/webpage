@@ -14,7 +14,7 @@
     "dev:no-debug": "npm run dev -- --no_debug",
     "test": "node -r dotenv/config ./node_modules/karma/bin/karma start bin/karma.js",
     "test:dev": "npm run test -- --watch",
-    "deploy": "npm run test && npm run clean && npm run compile",
+    "deploy": "npm run clean && npm run compile",
     "heroku-prebuild": "npm run deploy"
   },
   "repository": {
@@ -29,6 +29,7 @@
     "formsy-material-ui": "^0.4.2",
     "formsy-react": "^0.18.0",
     "history": "^2.1.1",
+    "http-server": "^0.9.0",
     "lodash": "^4.11.2",
     "material-ui": "^0.15.0-beta.2",
     "normalize-scss": "^4.0.3",
