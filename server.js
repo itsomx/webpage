@@ -12,7 +12,9 @@ var server = {
       res.sendFile(indexPath);
     });
 
-    return app;
+    app.listen(3033);
+
+    return server;
   }
 };
 
