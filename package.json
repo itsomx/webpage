@@ -15,7 +15,7 @@
     "test": "node -r dotenv/config ./node_modules/karma/bin/karma start bin/karma.js",
     "test:dev": "npm run test -- --watch",
     "build": "npm run clean && npm run compile",
-    "heroku-prebuild": "npm run build"
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
